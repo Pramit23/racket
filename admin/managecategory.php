@@ -48,15 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!---//webfonts--->
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
-  <style>
-    .container {
-      width: auto;
-    }
-
-    h2 {
-      margin-top: 50px;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -72,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </button>
         <div class="container">
           <div class="logobox">
-          <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
+            <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
           </div>
         </div>
       </div>
@@ -83,47 +75,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <!-- /.navbar-static-side -->
     </nav>
     <div id="page-wrapper">
-
-
       <div class="container">
+        <div class="margin">
+          <div class="row">
+            <div class="col-md-6">
+              <h2>Manage Category</h2>
+            </div>
+            <div class="col-md-6"><a href="addcategory.php"><button type="submit" class="btn btn-default">Add
+                  Category</button></a></div>
+          </div>
+        </div>
 
-        <h2>Manage Catagory</h2>
 
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Category Name</th>
+              <th>Id</th>
+              <th>Category</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <?php 
-        $sql = "SELECT * from tbl_category";
-        $query = $dbh -> prepare($sql);
-        //$query -> bindParam(':city', $city, PDO::PARAM_STR);
-        $query->execute();
-        $results=$query->fetchAll(PDO::FETCH_OBJ);
-        $cnt=1;
-        if($query->rowCount() > 0)
-        {
-        foreach($results as $result)
-        {				
-      ?>
+            <?php $sql = "SELECT * FROM tbl_category"; 
+$query = $dbh -> prepare($sql);
+//$query -> bindParam(':city', $city, PDO::PARAM_STR);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{				?>
             <tr>
+
+
               <td><?php echo htmlentities($cnt);?></td>
               <td><?php echo htmlentities($result->name);?></td>
-              <td><button type="submit" class="btn btn-danger">Active</button></td>
-              <td><a href="updatecategory.php?Cid=<?php echo htmlentities($result->Id);?>" class="btn btn-primary" title="" data-toggle="tooltip" 
-              data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
-              <a href="managecategory.php?cid=<?php echo htmlentities($result->Id);?>"  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn" title="Delete" data-toggle="tooltip">
-                <i class="fa fa-times"></i></a>&nbsp;</td>
 
+              <td><button type="submit" class="btn btn-danger">Active</button></td>
+              <td><a href="updatecategory.php?cid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
+                  title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
+                <a href="managecategory.php?Cid=<?php echo htmlentities($result->Id);?>"
+                  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn"
+                  title="Delete" data-toggle="tooltip">
+                  <i class="fa fa-times"></i></a>&nbsp;</td>
             </tr>
-            <?php $cnt=$cnt+1;
-          } 
-          }?>
+            <?php $cnt=$cnt+1;} }?>
           </tbody>
         </table>
       </div>

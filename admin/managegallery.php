@@ -93,6 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <thead>
             <tr>
               <th>Id</th>
+              <th>Category</th>
               <th>Title</th>
               <th>Description</th>
               <th>Image</th>
@@ -101,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </tr>
           </thead>
           <tbody>
-            <?php $sql = "SELECT * from tbl_gallery";
+            <?php $sql = "SELECT * FROM tbl_gallery"; 
 $query = $dbh -> prepare($sql);
 //$query -> bindParam(':city', $city, PDO::PARAM_STR);
 $query->execute();
@@ -115,6 +116,7 @@ foreach($results as $result)
 
 
               <td><?php echo htmlentities($cnt);?></td>
+              <td><?php echo htmlentities($result->name);?></td>
               <td><?php echo htmlentities($result->title);?></td>
               <td><?php echo htmlentities($result->description);?></td>
               <td><?php echo htmlentities($result->image);?></td>

@@ -110,7 +110,7 @@ foreach($results as $result)
                                 <input type="date" class="form-control" name="date" id="date" value="<?php echo htmlentities($result->date); ?>">
                             </div>
                             <div class="form-group">
-                                <input type="varchar" class="form-control" name="description" id="description" value="<?php echo htmlentities($result->description); ?>">
+                                <textarea value="<?php echo htmlentities($result->description) ?>"></textarea>
                             </div>
                             <?php }} ?>
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>

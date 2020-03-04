@@ -14,24 +14,26 @@ if(isset($_POST['submit']))
 $title=$_POST['title'];
     
 $description=$_POST['description'];
+$name=$_POST['name'];
 
 
 $image=$_FILES["image"]["name"];
 move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$_FILES["image"]["name"]);	
 
-$sql="INSERT INTO tbl_gallery(title ,description,image)
-VALUES(:title,:description,:image)";
+$sql="INSERT INTO tbl_gallery(title ,description,image,name)
+VALUES(:title,:description,:image,:name)";
 	
 $query = $dbh->prepare($sql);
 $query->bindParam(':title',$title,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);	
+$query->bindParam(':name',$name,PDO::PARAM_STR);	
 $query->bindParam(':image',$image,PDO::PARAM_STR);
 
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$msg="Package Created Successfully";
+$msg="Image and it's details Created Successfully";
 }
 else 
 {
@@ -102,22 +104,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                         <div class="tab-pane active" id="horizontal-form">
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <select class="form-control">
-                                        <?php 
-                            $sql = "SELECT * from tbl_category";
-                        $query = $dbh -> prepare($sql);
-//$query -> bindParam(':city', $city, PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{				?>
-                                        <option><?php echo htmlentities($result->name);?></option>
-                                        <?php $cnt=$cnt+1;} }?>
-                                    </select>
+                            <div class="form-group">
+                                    <input type="number" class="form-control" name="name" id="name" placeholder="Enter Category"
+                                        required="">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title"

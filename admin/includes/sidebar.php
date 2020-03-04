@@ -22,9 +22,9 @@
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>Gallery Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="createcategory.php">Add Catagory</a>
-                                    <a href="managecategory.php">Gallery Catogory Lists</a>
-                                    <a href="addgallery.php">Add Gallery</a>
+                                    <!--<a href="createcategory.php">Add Catagory</a>-->
+                                    <!--<a href="managecategory.php">Gallery Category Lists</a>-->
+                                   <!-- <a href="addgallery.php">Add Gallery</a> -->
                                     <a href="managegallery.php">Gallery Lists</a>
                                 </li>
                             </ul>
@@ -34,7 +34,7 @@
                             <a href="#"><i class="fa fa-indent nav_icon"></i>Slider Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="addslider.php">Add Slider</a>
+                                   <!-- <a href="addslider.php">Add Slider</a>-->
                                     <a href="sliderlist.php">Slider Lists</a>
                                 </li>
                                
@@ -45,7 +45,7 @@
                             <a href="#"><i class="fa fa-indent nav_icon"></i>Notice & News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="addnotice.php">Add Notice</a>
+                                <!--    <a href="addnotice.php">Add Notice</a> -->
                                 </li>
                                 <li>
                                     <a href="noticelist.php">Notice Lists</a>
@@ -57,7 +57,7 @@
                             <a href="#"><i class="fa fa-indent nav_icon"></i>Event Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="addevent.php">Add event</a>
+                               <!--     <a href="addevent.php">Add event</a> -->
                                 </li>
                                 <li>
                                     <a href="eventlist.php">Event Lists</a>

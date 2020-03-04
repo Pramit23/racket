@@ -8,12 +8,11 @@ include('includes/config.php');
 <html lang="zxx">
 
 <head>
-	<title>Golf Club a Sports Category Bootstrap Responsive Website Template | Gallery :: w3layouts</title>
+	<title>Calcutta Racket Club | Gallery </title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords"
-		content="Golf Club web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta name="keywords" content="Calcutta Racket Club" />
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -55,43 +54,41 @@ include('includes/config.php');
 	<!-- gallery -->
 	<div class="container-fluid">
 		<div class="gallery-fluid">
-
-
-			<div class="btnsection">
-				<?php 
-	
-	$sql1="SELECT * 
-	FROM tbl_gallery join tbl_category On tbl_gallery.name=tbl_category.name";
-	$query1=$dbh->prepare($sql1);
-		$query1->execute();
-		$results1=$query1->fetchAll(PDO::FETCH_OBJ);
-	
-		if($query1->rowCount()>0)
+			<br>
+			<center>
+				<button class="btn btn-primary" onclick="geeks_outer()">
+					Click To Sort
+				</button>
+			</center>
+			<?php 
+	$sql="SELECT * 
+	FROM tbl_gallery ORDER BY Id";
+	$query=$dbh->prepare($sql);
+		$query->execute();
+		$results=$query->fetchAll(PDO::FETCH_OBJ);
+		
+		if($query->rowCount()>0)
 		{
-			foreach($results1 as $result1)
+			foreach($results as $result)
 			{
 			?>
-				<!--<center>
-					<button type="submit" class="btn btn-primary"><?php echo htmlentities($result1->name) ?></button>
-				</center>-->
-			</div>
 			<div class="gallery-grids">
 				<div class="col-md-4 col-xs-4 gallery-grid wow fadeInUp animated" data-wow-delay=".5s">
 					<div class="grid">
 						<figure class="effect-apollo">
-							<a class="example-image-link"
-								href="admin/images/<?php echo htmlentities($result1->image) ?>"
+							<a class="example-image-link" href="admin/images/<?php echo htmlentities($result->image) ?>"
 								data-lightbox="example-set" data-title="">
-								<img src="admin/images/<?php echo htmlentities($result1->image) ?>" alt="" />
+								<img src="admin/images/<?php echo htmlentities($result->image) ?>" alt="" />
+								<h3><?php echo htmlentities($result->category) ?></h3>
 								<figcaption>
-									<h3><?php echo htmlentities($result1->title) ?></h3>
-									<p><?php echo htmlentities($result1->description) ?></p>
+									<h3><?php echo htmlentities($result->title) ?></h3>
+									<p><?php echo htmlentities($result->description) ?></p>
 								</figcaption>
 							</a>
 						</figure>
 					</div>
 				</div>
-				
+
 				<?php 
 			} 
 			}
@@ -153,6 +150,30 @@ include('includes/config.php');
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
+	<script>
+		var array = [{
+				id: "1",
+				date: "Mar 12 2012 10:00:00 AM"
+			},
+			{
+				id: "2",
+				date: "Mar 8 2012 08:00:00 AM"
+			}
+		];
+
+		var el = document.getElementById("GFG_P");
+
+		function geeks_outer() {
+			array.sort(GFG_sortFunction);
+			el.innerHTML = JSON.stringify(array);
+		}
+
+		function GFG_sortFunction(a, b) {
+			var dateA = new Date(a.date).getTime();
+			var dateB = new Date(b.date).getTime();
+			return dateA > dateB ? 1 : -1;
+		};
+	</script>
 	<!-- //js-scripts -->
 </body>
 

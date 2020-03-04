@@ -16,30 +16,33 @@ move_uploaded_file($_FILES["gimage"]["tmp_name"],"images/".$_FILES["gimage"]["na
 
 $gtitle=$_POST['gtitle'];
 $gdescription=$_POST["gdescription"];
+$gname=$_POST["gname"];
 
-	$sql="update tbl_gallery set image=:gimage,title=:gtitle,description=:gdescription where Id=:gid";
+	$sql="update tbl_gallery set image=:gimage,title=:gtitle,description=:gdescription,name=:gname where Id=:gid";
 	
 $query = $dbh->prepare($sql);
 $query->bindParam(':gimage',$gimage,PDO::PARAM_STR);
 $query->bindParam(':gtitle',$gtitle,PDO::PARAM_STR);
 $query->bindParam(':gdescription',$gdescription,PDO::PARAM_STR);
+$query->bindParam(':gname',$gname,PDO::PARAM_STR);
 
 $query->bindParam(':gid',$gid,PDO::PARAM_STR);
 $query->execute();
 }else{
 	$gtitle=$_POST['gtitle'];
 	$gdescription=$_POST["gdescription"];
+	$gname=$_POST["gname"];
 
-	$sql="update tbl_gallery set title=:gtitle,description=:gdescription where Id=:gid";
+	$sql="update tbl_gallery set title=:gtitle,description=:gdescription,name=:gname where Id=:gid";
 	$query = $dbh->prepare($sql);
 
 	$query->bindParam(':gtitle',$gtitle,PDO::PARAM_STR);
 	$query->bindParam(':gdescription',$gdescription,PDO::PARAM_STR);
+	$query->bindParam(':gname',$gname,PDO::PARAM_STR);
 
 	$query->bindParam(':gid',$gid,PDO::PARAM_STR);
 	$query->execute();
-}
-$msg="Gallery Updated Successfully";
+}$msg="Gallery Updated Successfully";
 }
 ?>
 <!DOCTYPE HTML>
@@ -116,7 +119,11 @@ foreach($results as $result)
 {
 ?>
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
+                                <div class="form-group">
+                                    <input type="varchar" class="form-control" name="gname" id="gname"
+                                        value="<?php echo htmlentities($result->name); ?>">
+                                </div>
+                                <div class="form-group">
                                     <input type="varchar" class="form-control" name="gtitle" id="gtitle"
                                         value="<?php echo htmlentities($result->title); ?>">
                                 </div>
@@ -126,9 +133,14 @@ foreach($results as $result)
 
                                 </div>
                                 <div class="form-group">
+                                    <div class=container-fluid">
                                     <img src="images/<?php echo htmlentities($result->image);?>"
-                                        style="width:100%;height:50%;">
-                                    <a href="changegallery.php?Gid=<?php echo htmlentities($result->Id);?>" style="color:black;">Change Image</a>
+                                        style="width:50%;height:50%;">
+                                    <br>                                    
+                                    <a href="changegallery.php?Gid=<?php echo htmlentities($result->Id);?>"
+                                     style="color:black; font:sans-serif;">
+                                    Change Image</a>
+</div>
                                 </div>
                         <?php }} ?>
                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>

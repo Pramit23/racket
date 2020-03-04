@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2020 at 10:06 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: Mar 04, 2020 at 06:16 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,25 +44,6 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_category`
---
-
-CREATE TABLE `tbl_category` (
-  `Id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_category`
---
-
-INSERT INTO `tbl_category` (`Id`, `name`) VALUES
-(10, '2017'),
-(11, '2018');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_event`
 --
 
@@ -76,7 +57,7 @@ CREATE TABLE `tbl_event` (
 --
 
 INSERT INTO `tbl_event` (`Id`, `event`) VALUES
-(12, 'Screenshot (15).png');
+(12, 'race.jpeg');
 
 -- --------------------------------------------------------
 
@@ -89,21 +70,8 @@ CREATE TABLE `tbl_gallery` (
   `title` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
   `image` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `category` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_gallery`
---
-
-INSERT INTO `tbl_gallery` (`Id`, `title`, `description`, `image`, `name`) VALUES
-(12, 'image1', 'REd', 'Screenshot (13).png', '2017'),
-(13, 'Image 2', 'Green', 'Screenshot (11).png', '2017'),
-(14, 'Image 3', 'Blue', 'Screenshot (7).png', '2017'),
-(15, 'Image 4', 'terqa', 'Screenshot (14).png', '2017'),
-(16, 'Image 5', 'eqw', 'Screenshot (13).png', '2017'),
-(22, 'Oppa', 'rer', 'abc.png', '2018'),
-(23, 'rte', 'ads', 'Screenshot (13).png', '2018');
 
 -- --------------------------------------------------------
 
@@ -115,7 +83,7 @@ CREATE TABLE `tbl_notice` (
   `Id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `description` mediumtext NOT NULL
+  `description` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -123,7 +91,7 @@ CREATE TABLE `tbl_notice` (
 --
 
 INSERT INTO `tbl_notice` (`Id`, `title`, `date`, `description`) VALUES
-(8, 'Bar Night', '2020-02-11', 'Lets party!!');
+(8, 'Bar Night', '2020-03-04', 'aqweqew');
 
 -- --------------------------------------------------------
 
@@ -154,12 +122,6 @@ INSERT INTO `tbl_slider` (`Id`, `simage`) VALUES
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_category`
---
-ALTER TABLE `tbl_category`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `tbl_event`
@@ -196,12 +158,6 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_category`
---
-ALTER TABLE `tbl_category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
 -- AUTO_INCREMENT for table `tbl_event`
 --
 ALTER TABLE `tbl_event`
@@ -211,7 +167,7 @@ ALTER TABLE `tbl_event`
 -- AUTO_INCREMENT for table `tbl_gallery`
 --
 ALTER TABLE `tbl_gallery`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_notice`
