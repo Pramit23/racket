@@ -67,56 +67,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        bkLib.onDomLoaded(function () {
+            nicEditors.allTextAreas()
+        });
+        //]]>
+    </script>
 </head>
 
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
-            </div>
+
             <!-- /.navbar-header -->
 
-                <?php include('includes/sidebar.php'); ?>
+            <?php include('includes/sidebar.php'); ?>
 
-                <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper">
-            <div class="graphs">
-                <div class="xs">
-                    <h3>Add Notice</h3>
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+        <center>
+            <div id="page-wrapper">
+                <div class="graphs">
+                    <div class="xs">
+                        <h3>Add Notice</h3>
+                        <?php if($error){?><div class="errorWrap">
+                            <strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="horizontal-form">
-                        <form class="form-horizontal" name="notice"  method="post" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <input type="varchar" class="form-control" name="title" id="title"
-                                        placeholder="Enter Title">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control" name="date" id="date">
-                                </div>
-                                <div class="form-group">
-                                  <textarea name="description" class="form-control" id="description"></textarea>
-                                </div>
-                                <button type="submit" name="submit" class="btn-primary btn">Create</button>
-                                <button type="reset" class="btn-inverse btn">Reset</button>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <form class="form-horizontal" name="notice" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <input type="varchar" class="form-control" name="title" id="title"
+                                            placeholder="Enter Title">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" name="date" id="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="description" cols="60" rows="20"></textarea>
+                                    </div>
+                                    <button type="submit" name="submit" class="btn-primary btn">Create</button>
+                                    <button type="reset" class="btn-inverse btn">Reset</button>
 
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <?php include('includes/copyright.php') ?>
             </div>
-            <?php include('includes/copyright.php') ?>
-        </div>
+        </center>
     </div>
     <!-- /#page-wrapper -->
     </div>
@@ -129,4 +132,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-    <?php } ?>
+<?php } ?>

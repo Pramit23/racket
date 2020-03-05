@@ -89,8 +89,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>
 					<div class="col-xs-9 contact-grdr">
 						<ul>
-							<li>+3402 890 679</li>
-							<li>+5356 890 679</li>
+							<li>+91 223 1138</li>
 						</ul>
 					</div>
 					<div class="clearfix"> </div>
@@ -102,7 +101,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<div class="col-xs-9 contact-grdr">
 						<ul>
 							<li>95, Jawaharlal Nehru Rd,</li>
-							<li>Chowronghee, Kolkata, West Bengal 700071</li>
+							<li>Near St. Paul's Cathredal,</li>
+							<li>Kolkata-700071,West Bengal </li>
 						</ul>
 					</div>
 					<div class="clearfix"> </div>

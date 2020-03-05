@@ -45,18 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div id="wrapper">
      <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                 <div class="container">
-                                   <div class="logobox">
-                                   <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
-                    </div></div>
-            </div>
+            
             <!-- /.navbar-header -->
         
 			    <?php include('includes/sidebar.php'); ?>
@@ -81,7 +70,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <th>Title</th>
         <th>Date</th>
         <th>Description</th>
-        <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -100,7 +88,6 @@ foreach($results as $result)
       <td><?php echo htmlentities($result->title);?></td>
       <td><?php echo htmlentities($result->date);?></td>
       <td><?php echo htmlentities($result->description);?></td>
-      <td><button type="submit" class="btn btn-danger">Active</button></td>
       <td><a href="updatenotice.php?nid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary" title="" 
       data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
       <a href="noticelist.php?nid=<?php echo htmlentities($result->Id);?>" id="4"  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn" title="Delete" data-toggle="tooltip">

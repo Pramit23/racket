@@ -54,22 +54,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
       <!-- chnaged -->
 
-
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-        <div class="container">
-          <div class="logobox">
-          <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
-          </div>
-        </div>
-      </div>
-
       <!-- chnaged End -->
 
 

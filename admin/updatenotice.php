@@ -15,7 +15,7 @@ $title=$_POST['title'];
 $date=$_POST['date'];
 $description=$_POST['description'];
 
-$sql="update tbl_notice set title=:title date=:date description=:description  where Id=:nid";
+$sql="update tbl_notice set title=:title,date=:date,description=:description  where Id=:nid";
 	
 $query = $dbh->prepare($sql);
 
@@ -59,6 +59,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        bkLib.onDomLoaded(function () {
+            nicEditors.allTextAreas()
+        });
+        //]]>
+    </script>
 </head>
 
 <body>
@@ -76,19 +84,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- /.navbar-header -->
 
-                <?php include('includes/sidebar.php'); ?>
+            <?php include('includes/sidebar.php'); ?>
 
-                <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
             <div class="graphs">
                 <div class="xs">
                     <h3>Update Notice</h3>
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
+                    </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="horizontal-form">
-                        <?php 
+                            <?php 
 $nid=intval($_GET['nid']);
 $sql = "SELECT * from tbl_notice where Id=:nid";
 $query = $dbh -> prepare($sql);
@@ -101,18 +110,24 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {
 ?>
-                        <form class="form-horizontal" name="notice"  method="post" enctype="multipart/form-data">
-                            
-                            <div class="form-group">
-                              <input type="varchar" class="form-control" name="title" id="title" value="<?php echo htmlentities($result->title); ?>">
+                            <form class="form-horizontal" name="notice" method="post" enctype="multipart/form-data">
+
+                                <div class="form-group">
+                                    <input type="varchar" class="form-control" name="title" id="title"
+                                        value="<?php echo htmlentities($result->title); ?>">
                                 </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control" name="date" id="date" value="<?php echo htmlentities($result->date); ?>">
-                            </div>
-                            <div class="form-group">
-                                <textarea value="<?php echo htmlentities($result->description) ?>"></textarea>
-                            </div>
-                            <?php }} ?>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="date" id="date"
+                                        value="<?php echo htmlentities($result->date); ?>">
+                                </div>
+                                <div class="form-group">
+                                <div class="col-sm-8">
+                                <textarea  name="description" id="description" cols="60" rows="20" 
+                                value="<?php echo htmlentities($result->description);?>" >
+                                </textarea>
+                                </div>
+                                </div>
+                                <?php }} ?>
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn-inverse btn">Reset</button>
 
@@ -135,5 +150,5 @@ foreach($results as $result)
 </body>
 
 </html>
-    <?php }
+<?php }
     ?>

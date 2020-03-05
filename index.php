@@ -157,7 +157,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</div>
 </div>
 <!-- //welcome -->
-<div class="container"><center><a href="http://103.211.23.115:8080/crcweb/login/lpage.php"><button type="submit" class="btn btn-primary text-uppercase ">Click Here To book Court</button></a></center></div>
 
 <!-- Modal5 -->
 

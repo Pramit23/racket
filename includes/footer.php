@@ -34,7 +34,9 @@
 				<div class="w3-agileits_mail_grid_left2">
 					<h3>Address</h3>
 					<p>95, Jawaharlal Nehru Rd,
-Chowronghee, Kolkata, West Bengal 700071</p>
+						Near St. Paul's Cathredal,
+						Kolkata-700071,West Bengal
+					</p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -44,7 +46,7 @@ Chowronghee, Kolkata, West Bengal 700071</p>
 				</div>
 				<div class="w3-agileits_mail_grid_left2">
 					<h3>Phone</h3>
-					<p>+033 2223 1138</p>
+					<p>+91 223 1138</p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

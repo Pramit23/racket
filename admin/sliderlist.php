@@ -56,19 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div id="wrapper">
     <!-- Navigation -->
     <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="container">
-          <div class="logobox">
-          <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
-          </div>
-        </div>
-      </div>
+
       <!-- /.navbar-header -->
 
       <?php include('includes/sidebar.php'); ?>
@@ -84,7 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-6">
               <h2>Slider Lists</h2>
             </div>
-            <div class="col-md-6"><a href="addslider.php"><button type="submit" class="btn btn-default">Add Slider</button></a></div>
+            <div class="col-md-6"><a href="addslider.php"><button type="submit" class="btn btn-default">Add
+                  Slider</button></a></div>
           </div>
         </div>
 
@@ -93,7 +82,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <tr>
               <th>Id</th>
               <th>Slider</th>
-              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -109,14 +97,13 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {				?>
             <tr>
-            <td><?php echo htmlentities($cnt);?></td>
-            <td><?php echo htmlentities($result->simage);?></td>
-
-              <td><button type="submit" class="btn btn-danger">Active</button></td>
-              <td><a href="updateslider.php?sid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary" title="" data-toggle="tooltip"
-                  data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;<a 
+              <td><?php echo htmlentities($cnt);?></td>
+              <td><?php echo htmlentities($result->simage);?></td>
+              <td><a href="updateslider.php?sid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
+                  title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;<a
                   href="sliderlist.php?sid=<?php echo htmlentities($result->Id); ?>" id="4"
-                  class="btn btn-danger delete-btn" title="Delete"  onclick="return confirm('Do you really want to delete')" data-toggle="tooltip"><i
+                  class="btn btn-danger delete-btn" title="Delete"
+                  onclick="return confirm('Do you really want to delete')" data-toggle="tooltip"><i
                     class="fa fa-times"></i></a>&nbsp;</td>
             </tr>
             <?php $cnt=$cnt+1;} }?>

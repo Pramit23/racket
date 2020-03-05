@@ -43,7 +43,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<div class="col-md-4 about-left agileits-w3layouts">
 					<div class="pic">
 						<div class="stack twisted">	
-							<img src="images/ab-page.jpg" alt=" " class="img-responsive">
+							<img src="images/logo.png" alt=" " class="img-responsive">
 						</div> 
 					</div> 
 				</div>

@@ -88,15 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
-            </div>
+            
             <!-- /.navbar-header -->
 
             <?php include('includes/sidebar.php'); ?>
@@ -135,24 +127,11 @@ foreach($results as $result)
                                         value="<?php echo htmlentities($result->title); ?>">
                                 </div>
                                 <div class="form-group">
-                                <textarea name="gdescription" cols="40" >
-                                <?php 
-$description=$_GET['description'];
-$sql1 = "SELECT description FROM tbl_gallery";
-$query1 = $dbh -> prepare($sql1);
-$query1->bindParam(':description',$description,PDO::PARAM_STR);
-$query1->execute();
-$results1=$query1->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query1->rowCount() > 0)
-{
-foreach($results1 as $result1)
-{		
-echo htmlentities($result1->description);
-}}
-?>
+                                <div class="col-sm-8">
+                                <textarea  name="gdescription" id="gdescription" cols="60" rows="20" 
+                                value="<?php echo htmlentities($result->description);?>" >
                                 </textarea>
-
+                                </div>
                                 </div>
                                 <div class="form-group">
                                     <div class=container-fluid">

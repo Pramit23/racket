@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2020 at 06:16 PM
+-- Generation Time: Mar 05, 2020 at 07:59 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -52,13 +52,6 @@ CREATE TABLE `tbl_event` (
   `event` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_event`
---
-
-INSERT INTO `tbl_event` (`Id`, `event`) VALUES
-(12, 'race.jpeg');
-
 -- --------------------------------------------------------
 
 --
@@ -86,13 +79,6 @@ CREATE TABLE `tbl_notice` (
   `description` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_notice`
---
-
-INSERT INTO `tbl_notice` (`Id`, `title`, `date`, `description`) VALUES
-(8, 'Bar Night', '2020-03-04', 'aqweqew');
-
 -- --------------------------------------------------------
 
 --
@@ -103,15 +89,6 @@ CREATE TABLE `tbl_slider` (
   `Id` int(10) NOT NULL,
   `simage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_slider`
---
-
-INSERT INTO `tbl_slider` (`Id`, `simage`) VALUES
-(9, 'Screenshot (14).png'),
-(10, 'Screenshot (13).png'),
-(11, 'Screenshot (14).png');
 
 --
 -- Indexes for dumped tables
@@ -161,7 +138,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `tbl_event`
 --
 ALTER TABLE `tbl_event`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_gallery`
@@ -173,13 +150,13 @@ ALTER TABLE `tbl_gallery`
 -- AUTO_INCREMENT for table `tbl_notice`
 --
 ALTER TABLE `tbl_notice`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
