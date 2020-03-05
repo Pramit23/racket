@@ -11,22 +11,19 @@ else{
 if(isset($_POST['submit']))
 {
 
-$title=$_POST['title'];
-    
+$title=$_POST['title'];   
 $description=$_POST['description'];
-$name=$_POST['name'];
-
-
+$category=$_POST['category'];
 $image=$_FILES["image"]["name"];
 move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$_FILES["image"]["name"]);	
 
-$sql="INSERT INTO tbl_gallery(title ,description,image,name)
-VALUES(:title,:description,:image,:name)";
+$sql="INSERT INTO tbl_gallery(title ,description,image,category)
+VALUES(:title,:description,:image,:category)";
 	
 $query = $dbh->prepare($sql);
 $query->bindParam(':title',$title,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);	
-$query->bindParam(':name',$name,PDO::PARAM_STR);	
+$query->bindParam(':category',$category,PDO::PARAM_STR);	
 $query->bindParam(':image',$image,PDO::PARAM_STR);
 
 $query->execute();
@@ -72,6 +69,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+    <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+  </script>
 </head>
 
 <body>
@@ -105,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="tab-pane active" id="horizontal-form">
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                    <input type="number" class="form-control" name="name" id="name" placeholder="Enter Category"
+                                    <input type="varchar" class="form-control" name="category" id="name" placeholder="Enter Category"
                                         required="">
                                 </div>
                                 <div class="form-group">
@@ -113,8 +116,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         required="">
                                 </div>
                                 <div class="form-group">
-                                    <textarea type="varchar" name="description" id="description" placeholder="Enter description"
-                                        required=""></textarea>
+                                <textarea name="description" cols="40" >
+                                </textarea>
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="image" id="image" required="">

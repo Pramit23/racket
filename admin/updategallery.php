@@ -16,29 +16,29 @@ move_uploaded_file($_FILES["gimage"]["tmp_name"],"images/".$_FILES["gimage"]["na
 
 $gtitle=$_POST['gtitle'];
 $gdescription=$_POST["gdescription"];
-$gname=$_POST["gname"];
+$gcategory=$_POST["gcategory"];
 
-	$sql="update tbl_gallery set image=:gimage,title=:gtitle,description=:gdescription,name=:gname where Id=:gid";
+	$sql="update tbl_gallery set image=:gimage,title=:gtitle,description=:gdescription,category=:gcategory where Id=:gid";
 	
 $query = $dbh->prepare($sql);
 $query->bindParam(':gimage',$gimage,PDO::PARAM_STR);
 $query->bindParam(':gtitle',$gtitle,PDO::PARAM_STR);
 $query->bindParam(':gdescription',$gdescription,PDO::PARAM_STR);
-$query->bindParam(':gname',$gname,PDO::PARAM_STR);
+$query->bindParam(':gcategory',$gcategory,PDO::PARAM_STR);
 
 $query->bindParam(':gid',$gid,PDO::PARAM_STR);
 $query->execute();
 }else{
 	$gtitle=$_POST['gtitle'];
 	$gdescription=$_POST["gdescription"];
-	$gname=$_POST["gname"];
+	$gcategory=$_POST["gcategory"];
 
-	$sql="update tbl_gallery set title=:gtitle,description=:gdescription,name=:gname where Id=:gid";
+	$sql="update tbl_gallery set title=:gtitle,description=:gdescription,category=:gcategory where Id=:gid";
 	$query = $dbh->prepare($sql);
 
 	$query->bindParam(':gtitle',$gtitle,PDO::PARAM_STR);
 	$query->bindParam(':gdescription',$gdescription,PDO::PARAM_STR);
-	$query->bindParam(':gname',$gname,PDO::PARAM_STR);
+	$query->bindParam(':gcategory',$gcategory,PDO::PARAM_STR);
 
 	$query->bindParam(':gid',$gid,PDO::PARAM_STR);
 	$query->execute();
@@ -75,6 +75,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <!--Nice Edit-->
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+    <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+  </script>
 </head>
 
 <body>
@@ -120,16 +127,31 @@ foreach($results as $result)
 ?>
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="varchar" class="form-control" name="gname" id="gname"
-                                        value="<?php echo htmlentities($result->name); ?>">
+                                <input type="varchar" class="form-control" name="gcategory" id="gcategory"
+                                        value="<?php echo htmlentities($result->category); ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="varchar" class="form-control" name="gtitle" id="gtitle"
                                         value="<?php echo htmlentities($result->title); ?>">
                                 </div>
                                 <div class="form-group">
-                                <input type="varchar" class="form-control" name="gdescription" id="gdescription"
-                                        value="<?php echo htmlentities($result->description); ?>">
+                                <textarea name="gdescription" cols="40" >
+                                <?php 
+$description=$_GET['description'];
+$sql1 = "SELECT description FROM tbl_gallery";
+$query1 = $dbh -> prepare($sql1);
+$query1->bindParam(':description',$description,PDO::PARAM_STR);
+$query1->execute();
+$results1=$query1->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query1->rowCount() > 0)
+{
+foreach($results1 as $result1)
+{		
+echo htmlentities($result1->description);
+}}
+?>
+                                </textarea>
 
                                 </div>
                                 <div class="form-group">
@@ -145,7 +167,6 @@ foreach($results as $result)
                         <?php }} ?>
                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn-inverse btn">Reset</button>
-
                         </form>
                     </div>
                 </div>

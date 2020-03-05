@@ -97,7 +97,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <th>Title</th>
               <th>Description</th>
               <th>Image</th>
-              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -116,11 +115,10 @@ foreach($results as $result)
 
 
               <td><?php echo htmlentities($cnt);?></td>
-              <td><?php echo htmlentities($result->name);?></td>
+              <td><?php echo htmlentities($result->category);?></td>
               <td><?php echo htmlentities($result->title);?></td>
               <td><?php echo htmlentities($result->description);?></td>
-              <td><?php echo htmlentities($result->image);?></td>
-              <td><button type="submit" class="btn btn-danger">Active</button></td>
+              <td><img src="images/<?php echo htmlentities($result->image);?>" style="width:100px;height:100px;"></td>
               <td><a href="updategallery.php?gid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary" title="" data-toggle="tooltip"
                   data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
                   <a href="managegallery.php?gid=<?php echo htmlentities($result->Id);?>"  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn" title="Delete" data-toggle="tooltip">

@@ -228,7 +228,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</div>
 	</div>
 	<!-- NEWS & Events End -->
-
+<br><br>
 
 <!-- carasul Part -->
 <div class="mrcontainer">
@@ -245,7 +245,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="images/b3.jpg" alt="Los Angeles" style="width:100%;">
+	  <center> <img src="images/b3.jpg"  style="width:90%;height:100%;"> </center>
       </div>
       <?php 
 				
@@ -256,7 +256,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					extract($row);
 				?>
       <div class="item">
-        <img src="admin/slider/<?php echo $simage;?>" alt="Chicago" style="width:100%;">
+        <center><img src="admin/slider/<?php echo $simage;?>"  style="width:100%;height:100%;"></center>
       </div>
       <?php
 				}
@@ -279,138 +279,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 <!-- team -->
-<!--<div class="team">
-	<h3 class="agile-title">Our Team</h3>
-	<div class="agile_team_grids">
-		<div class="col-md-2 agile_team_grid">
-			<div class="ih-item circle effect1">
-				<div class="spinner"></div>
-				<div class="img"><img src="images/t1.jpg" alt=" " class="img-responsive" /></div>
-				<div class="info">
-					<div class="info-back">
-					  <h4>Director</h4>
-					  <p>Dolorem</p>
-					</div>
-				</div>
-			</div>
-			<h4>Alison Roy</h4>
-			<p>Fusce eu semper mkskham lacus, sodales id elit.</p>
-			<div class="social-icons team-icons">
-				<ul>
-					<li><a href="#" class="fa fa-facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter"> </a></li>
-					<li><a href="#" class="fa fa-linkedin"> </a></li>
-				</ul>
-			</div> 
-		</div>
-		<div class="col-md-2 agile_team_grid">
-			<div class="ih-item circle effect1">
-				<div class="spinner"></div>
-				<div class="img"><img src="images/t2.jpg" alt=" " class="img-responsive" /></div>
-				<div class="info">
-					<div class="info-back">
-					  <h4>Manager</h4>
-					  <p>Dolorem</p>
-					</div>
-				</div>
-			</div>
-			<h4>Ruthie Doe</h4>
-			<p>Fusce eu semper mkskham lacus, sodales id elit.</p>
-			<div class="social-icons team-icons">
-				<ul>
-					<li><a href="#" class="fa fa-facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter"> </a></li>
-					<li><a href="#" class="fa fa-linkedin"> </a></li>
-				</ul>
-			</div> 
-		</div>
-		<div class="col-md-2 agile_team_grid t3">
-			<div class="ih-item circle effect1">
-				<div class="spinner"></div>
-				<div class="img"><img src="images/t3.jpg" alt=" " class="img-responsive" /></div>
-				<div class="info">
-					<div class="info-back">
-					  <h4>Trainer</h4>
-					  <p>Dolorem</p>
-					</div>
-				</div>
-			</div>
-			<h4>Edward Crisp</h4>
-			<p>Fusce eu semper mkskham lacus, sodales id elit.</p>
-			<div class="social-icons team-icons">
-				<ul>
-					<li><a href="#" class="fa fa-facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter"> </a></li>
-					<li><a href="#" class="fa fa-linkedin"> </a></li>
-				</ul>
-			</div> 
-		</div>
-		<div class="col-md-2 agile_team_grid t4">
-			<div class="ih-item circle effect1">
-				<div class="spinner"></div>
-				<div class="img"><img src="images/t4.jpg" alt=" " class="img-responsive" /></div>
-				<div class="info">
-					<div class="info-back">
-					  <h4>Maintenance</h4>
-					  <p>Dolorem</p>
-					</div>
-				</div>
-			</div>
-			<h4>Saen kmhn</h4>
-			<p>Fusce eu semper mkskham lacus, sodales id elit.</p>
-			<div class="social-icons team-icons">
-				<ul>
-					<li><a href="#" class="fa fa-facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter"> </a></li>
-					<li><a href="#" class="fa fa-linkedin"> </a></li>
-				</ul>
-			</div> 
-		</div>
-		<div class="col-md-2 agile_team_grid t4">
-			<div class="ih-item circle effect1">
-				<div class="spinner"></div>
-				<div class="img"><img src="images/t6.jpg" alt=" " class="img-responsive" /></div>
-				<div class="info">
-					<div class="info-back">
-					  <h4>Founder</h4>
-					  <p>Dolorem</p>
-					</div>
-				</div>
-			</div>
-			<h4>John Koe</h4>
-			<p>Fusce eu semper mkskham lacus, sodales id elit.</p>
-			<div class="social-icons team-icons">
-				<ul>
-					<li><a href="#" class="fa fa-facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter"> </a></li>
-					<li><a href="#" class="fa fa-linkedin"> </a></li>
-				</ul>
-			</div> 
-		</div>
-		<div class="col-md-2 agile_team_grid t4">
-			<div class="ih-item circle effect1">
-				<div class="spinner"></div>
-				<div class="img"><img src="images/t5.jpg" alt=" " class="img-responsive" /></div>
-				<div class="info">
-					<div class="info-back">
-					  <h4>Trainer</h4>
-					  <p>Dolorem</p>
-					</div>
-				</div>
-			</div>
-			<h4>Lisn John</h4>
-			<p>Fusce eu semper mkskham lacus, sodales id elit.</p>
-			<div class="social-icons team-icons">
-				<ul>
-					<li><a href="#" class="fa fa-facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter"> </a></li>
-					<li><a href="#" class="fa fa-linkedin"> </a></li>
-				</ul>
-			</div> 
-		</div>
-		<div class="clearfix"> </div> 
-	</div>
-</div>-->
+
 <!-- //team -->
 <br>
 <?php include('includes/footer.php') ?>
