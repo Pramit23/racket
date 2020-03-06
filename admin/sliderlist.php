@@ -98,7 +98,7 @@ foreach($results as $result)
 {				?>
             <tr>
               <td><?php echo htmlentities($cnt);?></td>
-              <td><?php echo htmlentities($result->simage);?></td>
+              <td><center><img src="slider/<?php echo htmlentities($result->simage);?>" style="width:640px;height:480px;"></center></td>
               <td><a href="updateslider.php?sid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
                   title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;<a
                   href="sliderlist.php?sid=<?php echo htmlentities($result->Id); ?>" id="4"

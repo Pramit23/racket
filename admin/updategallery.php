@@ -76,19 +76,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!--Nice Edit-->
-    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
     <script type="text/javascript">
-//<![CDATA[
-        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-  //]]>
-  </script>
+        //<![CDATA[
+        bkLib.onDomLoaded(function () {
+            nicEditors.allTextAreas()
+        });
+        //]]>
+    </script>
 </head>
 
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            
+
             <!-- /.navbar-header -->
 
             <?php include('includes/sidebar.php'); ?>
@@ -119,7 +121,7 @@ foreach($results as $result)
 ?>
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                <input type="varchar" class="form-control" name="gcategory" id="gcategory"
+                                    <input type="varchar" class="form-control" name="gcategory" id="gcategory"
                                         value="<?php echo htmlentities($result->category); ?>">
                                 </div>
                                 <div class="form-group">
@@ -127,32 +129,54 @@ foreach($results as $result)
                                         value="<?php echo htmlentities($result->title); ?>">
                                 </div>
                                 <div class="form-group">
-                                <div class="col-sm-8">
-                                <textarea  name="gdescription" id="gdescription" cols="60" rows="20" 
-                                value="<?php echo htmlentities($result->description);?>" >
+                                    <div class="col-sm-8">
+                                        <textarea name="gdescription" id="gdescription" cols="60" rows="20"
+                                            value="<?php echo htmlentities($result->description);?>">
                                 </textarea>
-                                </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class=container-fluid">
-                                    <img src="images/<?php echo htmlentities($result->image);?>"
-                                        style="width:50%;height:50%;">
-                                    <br>                                    
-                                    <a href="changegallery.php?Gid=<?php echo htmlentities($result->Id);?>"
-                                     style="color:black; font:sans-serif;">
-                                    Change Image</a>
-</div>
+                                        <img src="images/<?php echo htmlentities($result->image);?>"
+                                            style="width:50%;height:50%;">
+                                        <br>
+                                        <a href="changegallery.php?Gid=<?php echo htmlentities($result->Id);?>"
+                                            style="color:black; font:sans-serif;">
+                                            Change Image</a>
+                                    </div>
                                 </div>
-                        <?php }} ?>
-                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn-inverse btn">Reset</button>
-                        </form>
+                              <center>  <span><h2>Category Images</h2></span> </center>
+                                <div class="form-group">
+                                    <input type="varchar" class="form-control" name="gtitle_1" id="gtitle_1"
+                                        value="<?php echo htmlentities($result->title_1); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-8">
+                                        <textarea name="gdescription" id="gdescription_1" cols="60" rows="20"
+                                            value="<?php echo htmlentities($result->description_1);?>">
+                                </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class=container-fluid">
+                                        <img src="images/<?php echo htmlentities($result->image_1);?>"
+                                            style="width:50%;height:50%;">
+                                        <br>
+                                        <a href="changegallery.php?Gid1=<?php echo htmlentities($result->Id);?>"
+                                            style="color:black; font:sans-serif;">
+                                            Change Image</a>
+                                    </div>
+                                </div>
+                                <?php }} ?>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn-inverse btn">Reset</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <?php include('includes/copyright.php') ?>
         </div>
-        <?php include('includes/copyright.php') ?>
-    </div>
     </div>
     <!-- /#page-wrapper -->
     </div>

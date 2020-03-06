@@ -35,7 +35,7 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <!--<a href="createcategory.php">Add Catagory</a>-->
-                                    <!--<a href="managecategory.php">Gallery Category Lists</a>-->
+                                    <a href="managecategory.php">Gallery Category Lists</a>
                                    <!-- <a href="addgallery.php">Add Gallery</a> -->
                                     <a href="managegallery.php">Gallery Lists</a>
                                 </li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 07:59 AM
+-- Generation Time: Mar 06, 2020 at 10:10 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -63,7 +63,10 @@ CREATE TABLE `tbl_gallery` (
   `title` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
   `image` varchar(255) NOT NULL,
-  `category` mediumtext NOT NULL
+  `category` mediumtext NOT NULL,
+  `title_1` text NOT NULL,
+  `image_1` varchar(255) NOT NULL,
+  `description_1` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -156,7 +159,7 @@ ALTER TABLE `tbl_notice`
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

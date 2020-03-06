@@ -89,7 +89,7 @@ foreach($results as $result)
                         <form class="form-horizontal" name="category"  method="post" enctype="multipart/form-data">
                             
                                 <div class="form-group">
-                                <img src="images/<?php echo htmlentities($result->image);?>"  style="width:100%;height:50%;">
+                                <img src="images/<?php echo htmlentities($result->image);?>"  style="width:30%;height:50%;">
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="gimage" id="gimage" required>

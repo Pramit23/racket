@@ -80,12 +80,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <tr>
               <th>Id</th>
               <th>Category</th>
-              <th>Status</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Image</th>
               <th>Action</th>
+
             </tr>
           </thead>
           <tbody>
-            <?php $sql = "SELECT * FROM tbl_category"; 
+            <?php $sql = "SELECT * FROM tbl_single_gallery"; 
 $query = $dbh -> prepare($sql);
 //$query -> bindParam(':city', $city, PDO::PARAM_STR);
 $query->execute();
@@ -99,10 +102,11 @@ foreach($results as $result)
 
 
               <td><?php echo htmlentities($cnt);?></td>
-              <td><?php echo htmlentities($result->name);?></td>
-
-              <td><button type="submit" class="btn btn-danger">Active</button></td>
-              <td><a href="updatecategory.php?cid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
+              <td><?php echo htmlentities($result->category);?></td>
+              <td><?php echo htmlentities($result->title);?></td>
+              <td><?php echo htmlentities($result->description);?></td>
+              <td><img src="images/category/<?php echo htmlentities($result->image);?>" style="width:100px;height:100px;"></td>
+             <td><a href="updatecategory.php?cid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
                   title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
                 <a href="managecategory.php?Cid=<?php echo htmlentities($result->Id);?>"
                   onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn"

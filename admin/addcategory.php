@@ -10,20 +10,27 @@ header('location:dashboard.php');
 else{
 if(isset($_POST['submit']))
 {
-
-$name=$_POST['name'];
-    
-$sql="INSERT INTO tbl_category(name)
-VALUES(:name)";
+$title=$_POST['title'];
+$description = $_POST['description'];
+$image=$_FILES["image"]["name"];
+move_uploaded_file($_FILES["image"]["tmp_name"],"images/category/".$_FILES["image"]["name"]);	
+$category=$_POST['category'];
+  
+$sql="INSERT INTO tbl_single_gallery(image,title,description,category)
+VALUES(:image,:title,:description,:category)";
 	
 $query = $dbh->prepare($sql);
-$query->bindParam(':name',$name,PDO::PARAM_STR);
+$query->bindParam(':title',$title,PDO::PARAM_STR);
+$query->bindParam(':image',$image,PDO::PARAM_STR);
+$query->bindParam(':description',$description,PDO::PARAM_STR);
+$query->bindParam(':category',$category,PDO::PARAM_STR);
+
 
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$msg="Category Created Successfully";
+$msg="Category Images and its details created Successfully";
 }
 else 
 {
@@ -35,7 +42,7 @@ $error="Something went wrong. Please try again";
 <html>
 
 <head>
-    <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+    <title>Calcutta Racket Club||Create Image category</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -61,44 +68,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        bkLib.onDomLoaded(function () {
+            nicEditors.allTextAreas()
+        });
+        //]]>
+    </script>
 </head>
 
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="dashboard.php">Master Admin Panel</a>
-            </div>
+
             <!-- /.navbar-header -->
 
-                <?php include('includes/sidebar.php'); ?>
+            <?php include('includes/sidebar.php'); ?>
 
-                <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
             <div class="graphs">
                 <div class="xs">
-                    <h3>Add Category</h3>
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+                    <h3>Add Image based on Category</h3>
+                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
+                    </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="horizontal-form">
-                        <form class="form-horizontal" name="category"  method="post" enctype="multipart/form-data">
+
+                            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+
                                 <div class="form-group">
-                                    <input type="varchar" class="form-control" name="name" id="name"
-                                        placeholder="Enter Category">
+                                    <input type="varchar" class="form-control" name="category"  placeholder="Enter Category">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                                </div>
+                                <br>
+                                <label>Enter image</label>
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="image">
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="description" cols="40">
+                                </textarea>
                                 </div>
                                 <button type="submit" name="submit" class="btn-primary btn">Create</button>
                                 <button type="reset" class="btn-inverse btn">Reset</button>
 
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -117,5 +139,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
- <?php }
+<?php }
     ?>

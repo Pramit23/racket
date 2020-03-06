@@ -8,7 +8,7 @@ include('includes/config.php');
 <html lang="zxx">
 
 <head>
-	<title>Calcutta Racket Club | Gallery </title>
+	<title>Calcutta Racket Club | Single Gallery </title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -37,7 +37,6 @@ include('includes/config.php');
 		href="//fonts.googleapis.com/css?family=Arsenal:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
 		rel="stylesheet">
 	<!-- //online-fonts -->
-	<script src="https://kit.fontawesome.com/02c69b64af.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -45,42 +44,56 @@ include('includes/config.php');
 		<!-- header -->
 		<?php include('includes/header.php') ?>
 		<!-- //header -->
+		<?php 
+$gid=intval($_GET['gid']);
+$sql = "SELECT * FROM tbl_gallery WHERE Id=:gid";
+
+$query = $dbh->prepare($sql);
+$query -> bindParam(':gid', $gid, PDO::PARAM_STR);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{	?>
 		<!-- banner -->
 		<div class="w3l-banner-2">
-			<h6>Gallery</h6>
+			<h6><?php echo htmlentities($result->category) ?></h6>
 		</div>
 	</div>
-
-
 	<!-- gallery -->
 	<div class="container-fluid">
 		<div class="gallery-fluid">
-			<br>
-
-			<?php 
-	$sql="SELECT * 
-	FROM tbl_gallery";
-	$query=$dbh->prepare($sql);
-		$query->execute();
-		$results=$query->fetchAll(PDO::FETCH_OBJ);
-		
-		if($query->rowCount()>0)
-		{
-			foreach($results as $result)
-			{
-			?>
 			<div class="gallery-grids">
 				<div class="col-md-4 col-xs-4 gallery-grid wow fadeInUp animated" data-wow-delay=".5s">
-					<div class="grid" style="width:30%;height:70%;"> 
-						<img  src="admin/images/<?php echo htmlentities($result->image);?>"
-							class="img-responsive" alt="">
-							<h3><?php echo htmlentities($result->category) ?></h3>
-						<a class="example-image-link" href="single_gallery.php?gid=<?php echo htmlentities($result->Id);?>">
-						<i class="fas fa-folder fa-2x"> &nbsp; Click here to see more...</i>
-						</a>
+					<div class="grid">
+
+						<figure class="effect-apollo">
+							<a class="example-image-link"
+								href="admin/images/<?php echo htmlentities($result->image_1) ?>"
+								data-lightbox="example-set" data-title="">
+								<img src="admin/images/<?php echo htmlentities($result->image_1) ?>" alt="" />
+								<figcaption>
+									<h3><?php echo htmlentities($result->title_1) ?></h3>
+									<p><?php echo htmlentities($result->description_1) ?></p>
+								</figcaption>
+							</a>
+						</figure>
+
+						<figure class="effect-apollo">
+							<a class="example-image-link"
+								href="admin/images/<?php echo htmlentities($result->image_2) ?>"
+								data-lightbox="example-set" data-title="">
+								<img src="admin/images/<?php echo htmlentities($result->image_2) ?>" alt="" />
+								<figcaption>
+									<h3><?php echo htmlentities($result->title_2) ?></h3>
+									<p><?php echo htmlentities($result->description_2) ?></p>
+								</figcaption>
+							</a>
+						</figure>
+
 					</div>
 				</div>
-
 				<?php 
 			} 
 			}
@@ -142,7 +155,30 @@ include('includes/config.php');
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
+	<script>
+		var array = [{
+				id: "1",
+				date: "Mar 12 2012 10:00:00 AM"
+			},
+			{
+				id: "2",
+				date: "Mar 8 2012 08:00:00 AM"
+			}
+		];
 
+		var el = document.getElementById("GFG_P");
+
+		function geeks_outer() {
+			array.sort(GFG_sortFunction);
+			el.innerHTML = JSON.stringify(array);
+		}
+
+		function GFG_sortFunction(a, b) {
+			var dateA = new Date(a.date).getTime();
+			var dateB = new Date(b.date).getTime();
+			return dateA > dateB ? 1 : -1;
+		};
+	</script>
 	<!-- //js-scripts -->
 </body>
 
