@@ -59,33 +59,28 @@ include('includes/config.php');
         <h1 class="text-center">Our Coaches</h1>
         <br><br>
         <div class="row">
-
+        <?php 
+				$sql2="select * from tbl_coach";
+				$query2=$dbh->prepare($sql2);
+					$query2->execute();
+					$results2=$query2->fetchAll(PDO::FETCH_OBJ);
+					$cnt=1;
+				
+					if($query2->rowCount()>0)
+					{
+						foreach($results2 as $result2)
+						{
+            ?>
             <div class="col-md-3">
-                <h4 class="text-center">Dalip Kumar Tripathi</h4><br>
-                <p class="text-justify">The World Squash Federation’s (WSF) level-2 coach. He is rated as one of the top
-                    coaches in the country. He is also the ASF Referee and WSF level – 1 tutor (Tutor, worldwide). He
-                    was the coach for Indian Men’s team for Asian Senior Squash Championship in May 16 at Chinese
-                    Taipei, China, where men’s team got Bronze Medal.</p>
+                <h4 class="text-center"><?php echo htmlentities($result2->name)?></h4><br>
+                <p class="text-justify"><?php echo  htmlspecialchars_decode(stripslashes($result2->description))?></p>
             </div>
-            <div class="col-md-3">
-                <h4 class="text-center">Gautam Das</h4><br>
-                <p class="text-justify">The World Squash Federation’s (WSF) level-3 coach. He is also the ASF Referee
-                    and WSF National level – 1 tutor (Tutor for their designated country).</p>
-            </div>
-            <div class="col-md-3">
-                <h4 class="text-center">P.R. Das </h4>
-                <br>
-                <p class="text-justify">
-                    The Asian Squash Federation’s (ASF) level-1 coach of the club, are ably assisting in the development
-                    of juniors of our club.</p>
-            </div>
-            <div class="col-md-3">
-                <h4 class="text-center">Sandeep Yadav</h4>
-                <br>
-                <p class="text-justify">the Asian Squash Federation’s (ASF) level-1 coach of the club, is ably assisting
-                    in the development of juniors of our club.</p>
-            </div>
-        </div><br>
+        <?php
+                        }
+                    }
+            ?>
+        </div>
+        <br>
         <h1 style="color:#007ACC" class="text-center">National Junior Development Program(NJDP)</h1><br>
         <div class="col-md-4">
             <div class="image-box">

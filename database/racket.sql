@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 10:10 AM
+-- Generation Time: Mar 14, 2020 at 06:24 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -44,6 +44,25 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_coach`
+--
+
+CREATE TABLE `tbl_coach` (
+  `Id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `description` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_coach`
+--
+
+INSERT INTO `tbl_coach` (`Id`, `name`, `description`) VALUES
+(3, 'RED', '                                    <strong>Lorem Ipsum</strong> <br>');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_event`
 --
 
@@ -51,6 +70,13 @@ CREATE TABLE `tbl_event` (
   `Id` int(11) NOT NULL,
   `event` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_event`
+--
+
+INSERT INTO `tbl_event` (`Id`, `event`) VALUES
+(1, '0ec1008a8dae217bda3081b22c463686.jpg');
 
 -- --------------------------------------------------------
 
@@ -63,10 +89,7 @@ CREATE TABLE `tbl_gallery` (
   `title` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
   `image` varchar(255) NOT NULL,
-  `category` mediumtext NOT NULL,
-  `title_1` text NOT NULL,
-  `image_1` varchar(255) NOT NULL,
-  `description_1` mediumtext NOT NULL
+  `category` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -81,6 +104,14 @@ CREATE TABLE `tbl_notice` (
   `date` date NOT NULL,
   `description` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_notice`
+--
+
+INSERT INTO `tbl_notice` (`Id`, `title`, `date`, `description`) VALUES
+(1, 'RED', '2020-03-14', 'BRAA<br>'),
+(2, 'RED', '2020-03-14', 'BRAA<br>');
 
 -- --------------------------------------------------------
 
@@ -102,6 +133,12 @@ CREATE TABLE `tbl_slider` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_coach`
+--
+ALTER TABLE `tbl_coach`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `tbl_event`
@@ -138,22 +175,28 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `tbl_coach`
+--
+ALTER TABLE `tbl_coach`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_event`
 --
 ALTER TABLE `tbl_event`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_gallery`
 --
 ALTER TABLE `tbl_gallery`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_notice`
 --
 ALTER TABLE `tbl_notice`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`
