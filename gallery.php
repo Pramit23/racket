@@ -37,7 +37,6 @@ include('includes/config.php');
 		href="//fonts.googleapis.com/css?family=Arsenal:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
 		rel="stylesheet">
 	<!-- //online-fonts -->
-	<script src="https://kit.fontawesome.com/02c69b64af.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -53,10 +52,8 @@ include('includes/config.php');
 
 
 	<!-- gallery -->
-	<div class="container-fluid">
-		<div class="gallery-fluid">
-			<br>
-
+	<div class="container">
+		<div class="gallery">
 			<?php 
 	$sql="SELECT * 
 	FROM tbl_gallery";
@@ -71,79 +68,82 @@ include('includes/config.php');
 			?>
 			<div class="gallery-grids">
 				<div class="col-md-4 col-xs-4 gallery-grid wow fadeInUp animated" data-wow-delay=".5s">
-					<div class="grid" style="width:30%;height:70%;"> 
-						<img  src="admin/images/<?php echo htmlentities($result->image);?>"
-							class="img-responsive" alt="">
-							<h3><?php echo htmlentities($result->category) ?></h3>
-						<a class="example-image-link" href="single_gallery.php?gid=<?php echo htmlentities($result->Id);?>">
-						<i class="fas fa-folder fa-2x"> &nbsp; Click here to see more...</i>
-						</a>
+					<div class="grid">
+						<figure class="effect-apollo">
+							<a class="example-image-link" href="admin/images/<?php echo htmlentities($result->image) ?>"
+								data-lightbox="example-set" data-title="">
+								<img src="admin/images/<?php echo htmlentities($result->image) ?>" alt="" />
+								<figcaption>
+									<h3><?php echo htmlentities($result->title) ?></h3>
+									<p><?php echo htmlentities($result->description) ?></p>
+								</figcaption>
+							</a>
+						</figure>
 					</div>
-				</div>
 
-				<?php 
+					<?php 
 			} 
 			}
 			?>
-				<div class="clearfix"> </div>
+					<div class="clearfix"> </div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<!-- //gallery -->
-	<!-- Footer -->
-	<?php include('includes/footer.php') ?>
-	<!-- //Footer -->
+		<!-- //gallery -->
+		<!-- Footer -->
+		<?php include('includes/footer.php') ?>
+		<!-- //Footer -->
 
-	<!-- js-scripts -->
-	<!-- js-files -->
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
-	<!-- //js-files -->
-	<!-- smooth scrolling -->
-	<script src="js/SmoothScroll.min.js"></script>
-	<!-- //smooth scrolling -->
-	<!-- //gallery -->
-	<script src="js/lightbox-plus-jquery.min.js"> </script>
-	<!-- //gallery -->
-	<!-- start-smooth-scrolling -->
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
+		<!-- js-scripts -->
+		<!-- js-files -->
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+		<!-- //js-files -->
+		<!-- smooth scrolling -->
+		<script src="js/SmoothScroll.min.js"></script>
+		<!-- //smooth scrolling -->
+		<!-- //gallery -->
+		<script src="js/lightbox-plus-jquery.min.js"> </script>
+		<!-- //gallery -->
+		<!-- start-smooth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function ($) {
+				$(".scroll").click(function (event) {
+					event.preventDefault();
 
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 1000);
+					$('html,body').animate({
+						scrollTop: $(this.hash).offset().top
+					}, 1000);
+				});
 			});
-		});
-	</script>
-	<!-- //end-smooth-scrolling -->
-	<!-- smooth scrolling -->
-	<script src="js/SmoothScroll.min.js"></script>
-	<!-- //smooth scrolling -->
-	<!-- smooth-scrolling-of-move-up -->
-	<script type="text/javascript">
-		$(document).ready(function () {
-			/*
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			*/
+		</script>
+		<!-- //end-smooth-scrolling -->
+		<!-- smooth scrolling -->
+		<script src="js/SmoothScroll.min.js"></script>
+		<!-- //smooth scrolling -->
+		<!-- smooth-scrolling-of-move-up -->
+		<script type="text/javascript">
+			$(document).ready(function () {
+				/*
+				var defaults = {
+					containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+				};
+				*/
 
-			$().UItoTop({
-				easingType: 'easeOutQuart'
+				$().UItoTop({
+					easingType: 'easeOutQuart'
+				});
+
 			});
+		</script>
+		<!-- //smooth-scrolling-of-move-up -->
 
-		});
-	</script>
-	<!-- //smooth-scrolling-of-move-up -->
-
-	<!-- //js-scripts -->
+		<!-- //js-scripts -->
 </body>
 
 </html>

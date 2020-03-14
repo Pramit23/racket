@@ -17,13 +17,8 @@ $description=$_POST['description'];
 $image=$_FILES["image"]["name"];
 move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$_FILES["image"]["name"]);
 
-$title_1=$_POST['title_1'];   
-$description_1=$_POST['description_1'];
-$image_1=$_FILES["image_1"]["name"];
-move_uploaded_file($_FILES["image_1"]["tmp_name"],"images/".$_FILES["image_1"]["name"]);	
-
-$sql="INSERT INTO tbl_gallery(category,title ,description,image,title_1,description_1,image_1)
-VALUES(:category,:title,:description,:image,:title_1,:description_1,:image_1)";
+$sql="INSERT INTO tbl_gallery(category,title ,description,image)
+VALUES(:category,:title,:description,:image)";
 	
 $query = $dbh->prepare($sql);
 
@@ -32,10 +27,6 @@ $query->bindParam(':category',$category,PDO::PARAM_STR);
 $query->bindParam(':title',$title,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);	
 $query->bindParam(':image',$image,PDO::PARAM_STR);
-
-$query->bindParam(':title_1',$title_1,PDO::PARAM_STR);
-$query->bindParam(':description_1',$description_1,PDO::PARAM_STR);	
-$query->bindParam(':image_1',$image_1,PDO::PARAM_STR);
 
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -124,17 +115,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="image" id="image" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="title_1" id="title_1" placeholder="Enter Title"
-                                        required="">
-                                </div>
-                                <div class="form-group">
-                                <textarea name="description_1" cols="40" >
-                                </textarea>
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" name="image_1" id="image_1" required="">
                                 </div>
                                
                                 <div class="row">
