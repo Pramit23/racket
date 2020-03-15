@@ -35,17 +35,8 @@ include('includes/config.php');
 	<link
 		href="//fonts.googleapis.com/css?family=Arsenal:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
 		rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-	</script>
+
+
 	<!-- //online-fonts -->
 	<style>
 		.mrcontainer {
@@ -145,6 +136,12 @@ include('includes/config.php');
 			.mrigank {
 				height: 280px;
 			}
+
+			#myCarousel {
+				height: auto;
+				width: auto;
+				overflow: hidden;
+			}
 		}
 	</style>
 </head>
@@ -230,41 +227,38 @@ include('includes/config.php');
 					<div class="mrigank">
 						<h5>News</h5>
 						<div id="listsnews">
+							<marquee behavior="slide" direction="left">
 
-							<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-								<div class="carousel-inner">
-									<div class="carousel-item active">
-										<h2 class="d-block w-100">THE PARK</h2>
-										<img class="d-block w-100"
-											src="https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg" alt="First slide">
-									</div>
-									<div class="carousel-item">
-										<img class="d-block w-100"
-											src="https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg"
-											alt="Second slide">
-									</div>
-									<div class="carousel-item">
-										<img class="d-block w-100"
-											src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg" alt="Third slide">
-									</div>
+								<?php 
+				$sql="select * from tbl_notice";
+				$query=$dbh->prepare($sql);
+					$query->execute();
+					$results=$query->fetchAll(PDO::FETCH_OBJ);
+				
+				
+					if($query->rowCount()>0)
+					{
+						foreach($results as $result)
+						{
+			?>
+								<div class="about-wel">
+									<center>
+										<h4><?php echo $result->title ?></h4>
+										<h3><?php echo $result->date ?></h3>
+										<p><?php echo htmlspecialchars_decode(stripslashes($result->description)) ?></p>
+									</center>
 								</div>
-								<a class="carousel-control-prev" href="#carouselExampleFade" role="button"
-									data-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="sr-only">Previous</span>
-								</a>
-								<a class="carousel-control-next" href="#carouselExampleFade" role="button"
-									data-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="sr-only">Next</span>
-								</a>
-							</div>
-
+								<?php
+		} 
+		}
+?>
+							</marquee>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 come">
-					<?php 
+			</div>
+			<div class="col-md-6 come">
+				<?php 
 				$sql2="select * from tbl_event";
 				$query2=$dbh->prepare($sql2);
 					$query2->execute();
@@ -276,21 +270,21 @@ include('includes/config.php');
 						foreach($results2 as $result2)
 						{
             ?>
-					<div class="about-wel">
-						<center>
-							<a href="admin/events/<?php echo htmlentities($result2->event) ?>"><img
-									style="width:50%; height:100%;"
-									src="admin/events/<?php echo htmlentities($result2->event) ?>"></a>
-						</center>
-					</div>
-					<?php
+				<div class="about-wel">
+					<center>
+						<a href="admin/events/<?php echo htmlentities($result2->event) ?>"><img
+								style="width:50%; height:100%;"
+								src="admin/events/<?php echo htmlentities($result2->event) ?>"></a>
+					</center>
+				</div>
+				<?php
 					 	$cnt=$cnt+1;
 					} 
 					}
 			?>
-				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- NEWS & Events End -->
 	<br><br>
@@ -299,21 +293,18 @@ include('includes/config.php');
 	<div class="mrcontainer">
 		<div class="container-fluid">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<!--  <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>-->
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
-
 					<div class="item active">
-						<center> <img src="images/b3.jpg" style="width:90%;height:100%;"> </center>
+						<img src="https://thumbs.dreamstime.com/b/shuttle-cock-badminton-blue-court-
+						shuttle-cock-badminton-blue-court-playing-badminton-image-blurry-129300743.jpg">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Lorem ipsum</h5>
+							<p style="color:beige;">Calcutta Racket Club</p>
+						</div>
 					</div>
-					<?php 
-				
+					<?php 	
 				$stmt=$dbh->prepare('select * from tbl_slider');
 				$stmt->execute();
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC))
@@ -321,7 +312,12 @@ include('includes/config.php');
 					extract($row);
 				?>
 					<div class="item">
-						<center><img src="admin/slider/<?php echo $simage;?>" style="width:100%;height:100%;"></center>
+						<img src="admin/slider/<?php echo $simage;?>">
+						<div class="carousel-caption d-none d-md-block">
+							<h5><?php  echo $result->title ?></h5>
+							<p style="color:beige;"><?php  echo $result->description ?></p>
+						</div>
+
 					</div>
 					<?php
 				}
@@ -344,7 +340,7 @@ include('includes/config.php');
 
 
 	<!-- team -->
-
+	<div class="clearfix"> </div>
 	<!-- //team -->
 	<br>
 	<?php include('includes/footer.php') ?>

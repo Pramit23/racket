@@ -81,7 +81,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <thead>
             <tr>
               <th>Id</th>
-              <th>Slider</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -97,11 +99,13 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {				?>
             <tr>
-              <td><?php echo htmlentities($cnt);?></td>
-              <td><center><img src="slider/<?php echo htmlentities($result->simage);?>" style="width:640px;height:480px;"></center></td>
-              <td><a href="updateslider.php?sid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
+              <td><strong><?php echo $cnt ?></strong></td>
+              <td><strong><?php echo $title ?></strong></td>
+              <td><strong><?php echo $description ?></strong></td>
+              <td><center><img src="slider/<?php echo $result->simage ?>" style="width:640px;height:480px;"></center></td>
+              <td><a href="updateslider.php?sid=<?php echo $result->Id ?>" class="btn btn-primary"
                   title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;<a
-                  href="sliderlist.php?sid=<?php echo htmlentities($result->Id); ?>" id="4"
+                  href="sliderlist.php?sid=<?php echo $result->Id ?>" id="4"
                   class="btn btn-danger delete-btn" title="Delete"
                   onclick="return confirm('Do you really want to delete')" data-toggle="tooltip"><i
                     class="fa fa-times"></i></a>&nbsp;</td>

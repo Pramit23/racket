@@ -82,7 +82,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <tr>
               <th>Id</th>
               <th>Event</th>
-              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -98,12 +97,11 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {				?>
             <tr>
-              <td><?php echo htmlentities($cnt);?></td>
-              <td><?php echo htmlentities($result->event);?></td>
-              <td><button type="submit" class="btn btn-danger">Active</button></td>
-              <td><a href="updateevent.php?eid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
+              <td><?php echo $cnt?></td>
+              <td><?php echo $result->event ?></td>
+              <td><a href="updateevent.php?eid=<?php echo $result->Id ?>" class="btn btn-primary"
                   title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
-                <a href="eventlist.php?eid=<?php echo htmlentities($result->Id); ?>"
+                <a href="eventlist.php?eid=<?php echo $result->Id ?>"
                   onclick="return confirm('Do you really want to delete')" id="4" class="btn btn-danger delete-btn"
                   title="Delete" data-toggle="tooltip"><i class="fa fa-times"></i></a>&nbsp;</td>
             </tr>

@@ -69,8 +69,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="graphs">
                 <div class="xs">
                     <h3>Update Event</h3>
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo $error ?> </div><?php } 
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo $msg  ?> </div><?php }?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="horizontal-form">
                         <?php 
@@ -89,7 +89,7 @@ foreach($results as $result)
                         <form class="form-horizontal" name="category"  method="post" enctype="multipart/form-data">
                             
                                 <div class="form-group">
-                                <img src="events/<?php echo htmlentities($result->event);?>"   style="width:50%;height:50%;">
+                                <img src="events/<?php echo $result->event ?>"   style="width:50%;height:50%;">
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="event" id="event" required>

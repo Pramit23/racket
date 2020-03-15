@@ -79,16 +79,18 @@ include('includes/config.php');
 			<!-- Intro Content -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="container"><a class="btn btn-warnning"
-							href="http://www.indiasquash.com/tournament-calendar.aspx" role="button"
-							style="font-weight:bold" target="_blank">Tournament calendar India/International</a>
+				
 
-						<h1 style="color:#495678;font-weight:bold;">TANTATIVE TOURNAMENT CALENDAR FOR THE YEAR 2020</h1>
+						<center>
+							<h1 style="color:#495678;font-weight:bold;">TENTATIVE TOURNAMENT CALENDAR FOR THE YEAR 2020</h1>
+						</center>
 						&nbsp;
 
 						<table class="table table-striped" height="444" width="1096">
 							<thead>
 								<tr>
+									<th bgcolor="blue"><strong><span style="color:#F0F8FF;">Id</span></strong>
+									</th>
 									<th bgcolor="blue"><strong><span style="color:#F0F8FF;">Tournaments</span></strong>
 									</th>
 									<th bgcolor="blue"><strong><span style="color:#F0FFFF;">Proposal
@@ -99,76 +101,86 @@ include('includes/config.php');
 							</thead>
 							<tbody>
 								<tr>
-									<td>John</td>
-									<td>Doe</td>
-									<td>john@example.com</td>
-								</tr>
-								<tr>
+									<th>1</th>
 									<td>CRC Doubles</td>
 									<td>17th - 22nd Feb 20</td>
 									<td>Team Event</td>
 								</tr>
 								<tr>
+								<th>2</th>
 									<td>26th Triangular Squash Meet (Kolkata)</td>
 									<td>28th Feb &ndash; 01st Mar 20</td>
 									<td>MRC-SCC-CRC</td>
 								</tr>
 								<tr>
+								<th>3</th>
 									<td>CRC Junior</td>
 									<td>6th - 10th Apr 20</td>
 									<td>Girls &amp; Boys U-19,17,15 &amp; 13</td>
 								</tr>
 								<tr>
+								<th>4</th>
 									<td>18th West Bengal State Closed (WBSRA)</td>
 									<td>13th - 17th Apr 20</td>
 									<td>Men&rsquo;s, Women&rsquo;s, Girls &amp; Boys U-19,17,15 &amp; 13</td>
 								</tr>
 								<tr>
+								<th>5</th>
 									<td>N. N. Atal Open &amp; Doubles</td>
 									<td>04th - 11th May 20</td>
 									<td>Men&rsquo;s, Women&rsquo;s, Doubles, Girls &amp; Boys U-19,17,15 &amp; 13</td>
 								</tr>
 								<tr>
+								<th>6</th>
 									<td>Monsoon Handicap</td>
 									<td>01st - 08th Jun 20</td>
 									<td>Handicap</td>
 								</tr>
 								<tr>
+								<th>7</th>
 									<td>R.K. Gautam Narain Handicap</td>
 									<td>08th - 15th Jul 20</td>
 									<td>Handicap</td>
 								</tr>
 								<tr>
+								<th>8</th>
 									<td>Indian Junior Open (Kolkata)</td>
 									<td>05th - 09th Aug 20</td>
 									<td>Girls &amp; Boys U-19,17,15,13 &amp; 11</td>
 								</tr>
 								<tr>
+								<th>9</th>
 									<td>Kolkata Squash League</td>
 									<td>17th - 23th Aug 20</td>
 									<td>Veteran Event League (Proposed)</td>
 								</tr>
 								<tr>
+								<th>10</th>
+
 									<td>06th Bengal Open (3 Star)</td>
 									<td>19th &ndash; 22nd Sept 20</td>
 									<td>Men&rsquo;s, Girls &amp; Boys U-19,17,15,13 &amp; 11</td>
 								</tr>
 								<tr>
+								<th>11</th>
 									<td>M.R. Das Veteran</td>
 									<td>05th - 10th Oct 20</td>
 									<td>Veteran Event (Over-40)</td>
 								</tr>
 								<tr>
+								<th>12</th>
 									<td>Junior Nationals (TBC)</td>
 									<td>01st - 7th Nov. 20</td>
 									<td>Girls &amp; Boys U-19,17,15,13 &amp; 11</td>
 								</tr>
 								<tr>
+								<th>13</th>
 									<td>Pran Prasad (Team Event)</td>
 									<td>23rd - 28th Nov 20</td>
 									<td>Team Event</td>
 								</tr>
 								<tr>
+								<th>14</th>
 									<td>CRC Vs. Sat C</td>
 									<td>TBC (Dec)</td>
 									<td>&nbsp;</td>

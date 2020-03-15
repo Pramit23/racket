@@ -18,7 +18,6 @@
                         <li><a href="committee.php">Committee</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
                         <li><a href="contact.php">Contact Us</a></li>
-                        <li><a href="admin/login.php">Admin</a></li>
                         </ul>
                     </nav>   
                     <!-- //nav -->

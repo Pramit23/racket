@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include('includes/config.php');
@@ -24,7 +23,6 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 
 }
 ?>
-<!DOCTYPE HTML>
 <html>
 <head>
 <title>Admin Panel</title>
@@ -37,22 +35,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<script src="https://kit.fontawesome.com/02c69b64af.js" crossorigin="anonymous"></script>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!----webfonts--->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<script src="https://kit.fontawesome.com/02c69b64af.js" crossorigin="anonymous"></script>
 <!---//webfonts--->  
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-<style>
-#login{
-background-image:url(https://storage.googleapis.com/ehimages/2018/6/29/img_a7aec7bdc2c228aa1848cf8f6e4e943b_1530239737429_original.jpg) ;
-}
-</style>
-
+<
 </head>
 <body id="login">
   <div class="login-logo">
@@ -83,7 +74,7 @@ background-image:url(https://storage.googleapis.com/ehimages/2018/6/29/img_a7aec
 		      </ul>
 		</form>
   </div>
-  <br><br>
+  &nbsp;
   <?php include('includes/copyright.php') ?>
 </body>
 </html>

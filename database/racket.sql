@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2020 at 06:24 PM
+-- Generation Time: Mar 15, 2020 at 08:10 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -92,6 +92,14 @@ CREATE TABLE `tbl_gallery` (
   `category` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_gallery`
+--
+
+INSERT INTO `tbl_gallery` (`Id`, `title`, `description`, `image`, `category`) VALUES
+(2, 'REd', '                                BAE', 'Screenshot (26).png', 'CRC @019'),
+(3, 'ewer', '                                adsasd', 'Screenshot (28).png', 'crc-2017');
+
 -- --------------------------------------------------------
 
 --
@@ -110,8 +118,7 @@ CREATE TABLE `tbl_notice` (
 --
 
 INSERT INTO `tbl_notice` (`Id`, `title`, `date`, `description`) VALUES
-(1, 'RED', '2020-03-14', 'BRAA<br>'),
-(2, 'RED', '2020-03-14', 'BRAA<br>');
+(1, 'RED', '2020-03-14', 'BRAA<br>');
 
 -- --------------------------------------------------------
 
@@ -121,8 +128,19 @@ INSERT INTO `tbl_notice` (`Id`, `title`, `date`, `description`) VALUES
 
 CREATE TABLE `tbl_slider` (
   `Id` int(10) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `description` mediumtext NOT NULL,
   `simage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_slider`
+--
+
+INSERT INTO `tbl_slider` (`Id`, `text`, `description`, `simage`) VALUES
+(2, 'LOrem', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Screenshot (59).png'),
+(3, '', '', 'Screenshot (37).png'),
+(4, '', '', 'Screenshot (97).png');
 
 --
 -- Indexes for dumped tables
@@ -190,19 +208,19 @@ ALTER TABLE `tbl_event`
 -- AUTO_INCREMENT for table `tbl_gallery`
 --
 ALTER TABLE `tbl_gallery`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_notice`
 --
 ALTER TABLE `tbl_notice`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

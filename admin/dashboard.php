@@ -104,7 +104,7 @@ $query2->execute();
 $results2=$query2->fetchAll(PDO::FETCH_OBJ);
 $cnt2=$query2->rowCount();
 					?>
-                <h5><strong><?php echo htmlentities($cnt2);?></strong></h5>
+              <h5><strong><?php echo htmlentities($cnt2);?></strong></h5>
                 <span>Total News & Notices</span>
               </div>
             </div>

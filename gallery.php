@@ -70,80 +70,85 @@ include('includes/config.php');
 				<div class="col-md-4 col-xs-4 gallery-grid wow fadeInUp animated" data-wow-delay=".5s">
 					<div class="grid">
 						<figure class="effect-apollo">
-							<a class="example-image-link" href="admin/images/<?php echo htmlentities($result->image) ?>"
+							<a class="example-image-link" href="admin/images/<?php echo $result->image ?>"
 								data-lightbox="example-set" data-title="">
-								<img src="admin/images/<?php echo htmlentities($result->image) ?>" alt="" />
+								<img src="admin/images/<?php echo $result->image ?>" alt="" />
 								<figcaption>
-									<h3><?php echo htmlentities($result->title) ?></h3>
-									<p><?php echo htmlentities($result->description) ?></p>
+									<h3><?php echo $result->title ?></h3>
+									<p><?php echo htmlspecialchars_decode(stripslashes($result->description))?></p>
 								</figcaption>
+								<h1><?php echo $result->category ?></h1>
 							</a>
 						</figure>
 					</div>
-
-					<?php 
+				</div>
+				<?php 
 			} 
 			}
 			?>
-					<div class="clearfix"> </div>
-				</div>
+
 			</div>
 		</div>
-		<!-- //gallery -->
-		<!-- Footer -->
-		<?php include('includes/footer.php') ?>
-		<!-- //Footer -->
 
-		<!-- js-scripts -->
-		<!-- js-files -->
-		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
-		<!-- //js-files -->
-		<!-- smooth scrolling -->
-		<script src="js/SmoothScroll.min.js"></script>
-		<!-- //smooth scrolling -->
-		<!-- //gallery -->
-		<script src="js/lightbox-plus-jquery.min.js"> </script>
-		<!-- //gallery -->
-		<!-- start-smooth-scrolling -->
-		<script type="text/javascript" src="js/move-top.js"></script>
-		<script type="text/javascript" src="js/easing.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function ($) {
-				$(".scroll").click(function (event) {
-					event.preventDefault();
+	</div>
+	<div class="clearfix"> </div>
+	</div>
+	<!-- //gallery -->
+	<br>
+	<!-- Footer -->
+	<?php include('includes/footer.php') ?>
+	<!-- //Footer -->
 
-					$('html,body').animate({
-						scrollTop: $(this.hash).offset().top
-					}, 1000);
-				});
+	<!-- js-scripts -->
+	<!-- js-files -->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+	<!-- //js-files -->
+	<!-- smooth scrolling -->
+	<script src="js/SmoothScroll.min.js"></script>
+	<!-- //smooth scrolling -->
+	<!-- //gallery -->
+	<script src="js/lightbox-plus-jquery.min.js"> </script>
+	<!-- //gallery -->
+	<!-- start-smooth-scrolling -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
 			});
-		</script>
-		<!-- //end-smooth-scrolling -->
-		<!-- smooth scrolling -->
-		<script src="js/SmoothScroll.min.js"></script>
-		<!-- //smooth scrolling -->
-		<!-- smooth-scrolling-of-move-up -->
-		<script type="text/javascript">
-			$(document).ready(function () {
-				/*
-				var defaults = {
-					containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-				};
-				*/
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+	<!-- smooth scrolling -->
+	<script src="js/SmoothScroll.min.js"></script>
+	<!-- //smooth scrolling -->
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
 
-				$().UItoTop({
-					easingType: 'easeOutQuart'
-				});
-
+			$().UItoTop({
+				easingType: 'easeOutQuart'
 			});
-		</script>
-		<!-- //smooth-scrolling-of-move-up -->
 
-		<!-- //js-scripts -->
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+
+	<!-- //js-scripts -->
 </body>
 
 </html>
