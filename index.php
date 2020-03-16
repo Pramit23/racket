@@ -27,6 +27,7 @@ include('includes/config.php');
 	<link rel="stylesheet" href="css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
 	<link rel="stylesheet" href="css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+
 	<!-- //css files -->
 	<!-- online-fonts -->
 	<link
@@ -143,6 +144,7 @@ include('includes/config.php');
 				overflow: hidden;
 			}
 		}
+	
 	</style>
 </head>
 
@@ -224,37 +226,33 @@ include('includes/config.php');
 			<h1 style="text-align:center; color:#007ACC"> News &amp; Event</h1>
 			<div class="about-top w3ls-agile">
 				<div class="col-md-6 red mr">
-					<div class="mrigank">
-						<h5>News</h5>
-						<div id="listsnews">
-							<marquee behavior="slide" direction="left">
-
-								<?php 
+						<?php 
 				$sql="select * from tbl_notice";
 				$query=$dbh->prepare($sql);
 					$query->execute();
 					$results=$query->fetchAll(PDO::FETCH_OBJ);
-				
+					$cnt=1;
 				
 					if($query->rowCount()>0)
 					{
 						foreach($results as $result)
 						{
 			?>
-								<div class="about-wel">
-									<center>
-										<h4><?php echo $result->title ?></h4>
-										<h3><?php echo $result->date ?></h3>
-										<p><?php echo htmlspecialchars_decode(stripslashes($result->description)) ?></p>
-									</center>
-								</div>
-								<?php
-		} 
-		}
-?>
-							</marquee>
+						<div id="slider">
+								<div class="slide">
+									<center><h3><?php echo $result->title; ?></h3></center>
+									<h5><?php echo $result->date; ?></h5>
+									&nbsp; &nbsp;
+									<p>
+									<?php echo htmlspecialchars_decode(stripslashes($result->description)); ?>
+									</p>
+								</div>						
 						</div>
-					</div>
+						<?php
+					 	$cnt=$cnt+1;
+					} 
+					}
+			?>
 				</div>
 			</div>
 			<div class="col-md-6 come">
@@ -297,7 +295,7 @@ include('includes/config.php');
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="https://thumbs.dreamstime.com/b/shuttle-cock-badminton-blue-court-
+						<img style="width:100%;height:560px;" src="https://thumbs.dreamstime.com/b/shuttle-cock-badminton-blue-court-
 						shuttle-cock-badminton-blue-court-playing-badminton-image-blurry-129300743.jpg">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Lorem ipsum</h5>
@@ -312,10 +310,10 @@ include('includes/config.php');
 					extract($row);
 				?>
 					<div class="item">
-						<img src="admin/slider/<?php echo $simage;?>">
+						<img style="width:100%;height:560px;" src="admin/slider/<?php echo $simage;?>">
 						<div class="carousel-caption d-none d-md-block">
-							<h5><?php  echo $result->title ?></h5>
-							<p style="color:beige;"><?php  echo $result->description ?></p>
+							<h5><?php  echo $text ?></h5>
+							<p style="color:beige;"><?php  echo htmlspecialchars_decode(stripslashes($description)) ?></p>
 						</div>
 
 					</div>

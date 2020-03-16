@@ -89,7 +89,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>
 					<div class="col-xs-9 contact-grdr">
 						<ul>
-							<li>+91 223 1138</li>
+							<li>+91 33 22231138</li>
 						</ul>
 					</div>
 					<div class="clearfix"> </div>

@@ -41,7 +41,7 @@ $error="Something went wrong. Please try again";
 <html>
 
 <head>
-    <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+    <title>Calcutta Racket Club||Add Notice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -88,7 +88,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- /.navbar-static-side -->
         </nav>
-        <center>
             <div id="page-wrapper">
                 <div class="graphs">
                     <div class="xs">
@@ -104,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             placeholder="Enter Title">
                                     </div>
                                     <div class="form-group">
-                                        <input type="date" class="form-control" name="date" id="date">
+                                        <input type="varchar" class="form-control" name="date" id="date">
                                     </div>
                                     <div class="form-group">
                                         <textarea name="description" cols="60" rows="20"></textarea>
@@ -119,7 +118,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <?php include('includes/copyright.php') ?>
             </div>
-        </center>
     </div>
     <!-- /#page-wrapper -->
     </div>

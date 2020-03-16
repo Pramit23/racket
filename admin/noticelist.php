@@ -21,7 +21,7 @@ else{
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+<title>Calcutta Racket Club||Manage Notice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -70,8 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <th>Title</th>
         <th>Date</th>
         <th>Description</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Action</th>
       </tr>
     </thead>
     <?php $sql = "SELECT * from tbl_notice";
@@ -90,8 +89,8 @@ foreach($results as $result)
       <td><?php echo htmlentities($result->date);?></td>
       <td><?php echo htmlspecialchars_decode(stripslashes($result->description));?></td>
       <td><a href="updatenotice.php?nid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary" title="" 
-      data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
-      <td><a href="noticelist.php?nid=<?php echo htmlentities($result->Id);?>" id="4"  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn" title="Delete" data-toggle="tooltip">
+      data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+      <a href="noticelist.php?nid=<?php echo htmlentities($result->Id);?>" id="4"  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn" title="Delete" data-toggle="tooltip">
         <i class="fa fa-times"></i></a>&nbsp;</td>
       </tr>
       <tr>

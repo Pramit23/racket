@@ -54,21 +54,21 @@ include('includes/config.php');
 	<!-- gallery -->
 	<div class="container">
 		<div class="gallery">
-			<?php 
-	$sql="SELECT * 
-	FROM tbl_gallery";
-	$query=$dbh->prepare($sql);
-		$query->execute();
-		$results=$query->fetchAll(PDO::FETCH_OBJ);
-		
-		if($query->rowCount()>0)
-		{
-			foreach($results as $result)
-			{
-			?>
 			<div class="gallery-grids">
-				<div class="col-md-4 col-xs-4 gallery-grid wow fadeInUp animated" data-wow-delay=".5s">
-					<div class="grid">
+			<?php 
+					$sql="select * from tbl_gallery";
+					$query=$dbh->prepare($sql);
+						$query->execute();
+						$results=$query->fetchAll(PDO::FETCH_OBJ);
+					
+						if($query->rowCount()>0)
+						{
+							foreach($results as $result)
+							{
+				?>	
+				<div class="col-md-6 col-xs-4 gallery-grid wow fadeInUp animated" data-wow-delay=".5s">
+				<div class="grid">
+					
 						<figure class="effect-apollo">
 							<a class="example-image-link" href="admin/images/<?php echo $result->image ?>"
 								data-lightbox="example-set" data-title="">
@@ -77,23 +77,22 @@ include('includes/config.php');
 									<h3><?php echo $result->title ?></h3>
 									<p><?php echo htmlspecialchars_decode(stripslashes($result->description))?></p>
 								</figcaption>
-								<h1><?php echo $result->category ?></h1>
 							</a>
 						</figure>
+					
 					</div>
+					
 				</div>
 				<?php 
-			} 
-			}
-			?>
-
+						}
+						}
+						?>	
 			</div>
 		</div>
-
-	</div>
-	<div class="clearfix"> </div>
 	</div>
 	<!-- //gallery -->
+	<div class="clearfix"> </div>
+
 	<br>
 	<!-- Footer -->
 	<?php include('includes/footer.php') ?>

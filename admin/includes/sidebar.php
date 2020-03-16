@@ -35,7 +35,6 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <!--<a href="createcategory.php">Add Catagory</a>-->
-                                    <a href="managecategory.php">Gallery Category Lists</a>
                                    <!-- <a href="addgallery.php">Add Gallery</a> -->
                                     <a href="managegallery.php">Gallery Lists</a>
                                 </li>
@@ -86,6 +85,47 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>Course Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="courselist.php">Course Lists</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>Communications Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="comms_list.php">Communications Lists</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>Squad Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                   <!-- <a href="addslider.php">Add Slider</a>-->
+                                    <a href="squad_list.php">Squad List</a>
+                                </li>
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>Committe Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                   <!-- <a href="addslider.php">Add Slider</a>-->
+                                    <a href="commi_list.php">Committe List</a>
+                                </li>
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        
                         
                       <!--  <li>
                             <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>

@@ -11,22 +11,29 @@ else{
 if(isset($_POST['submit']))
 {
 
- $event=$_FILES["event"]["name"];
-move_uploaded_file($_FILES["event"]["tmp_name"],"events/".$_FILES["event"]["name"]);	
-    
+$name=$_POST['name'];   
 
-$sql="INSERT INTO tbl_event(event)
-VALUES(:event)";
+$image=$_FILES["image"]["name"];
+move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$_FILES["image"]["name"]);
+
+$description=$_POST['description'];
+
+$sql="INSERT INTO tbl_squad(name,description,image)
+VALUES(:name,:description,:image)";
 	
 $query = $dbh->prepare($sql);
-$query->bindParam(':event',$event,PDO::PARAM_STR);
+
+
+$query->bindParam(':name',$name,PDO::PARAM_STR);
+$query->bindParam(':description',$description,PDO::PARAM_STR);	
+$query->bindParam(':image',$image,PDO::PARAM_STR);
 
 
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$msg="Event Created Successfully";
+$msg="Squad created Successfully";
 }
 else 
 {
@@ -34,11 +41,12 @@ $error="Something went wrong. Please try again";
 }
 }
 ?>
+
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Calcutta Racket Club || Add Event</title>
+    <title>Calcutta Racket Club || Add Squad</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -64,14 +72,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+    <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+  </script>
 </head>
 
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-         
+           
             <!-- /.navbar-header -->
+           
 
                 <?php include('includes/sidebar.php'); ?>
 
@@ -80,20 +95,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
             <div class="graphs">
                 <div class="xs">
-                    <h3>Add Events</h3>
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+                    <h3>Add Course</h3>
                     <div class="tab-content">
+                        <?php if($error){?><div class="errorWrap">
+                            <strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                         <div class="tab-pane active" id="horizontal-form">
-                        <form class="form-horizontal" name="event"  method="post" enctype="multipart/form-data">
-                            
-                            <div class="form-group">
-                              <input type="file" class="form-control" name="event" id="event">
+                            <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Course Name"
+                                        required="">
+                                </div>
+                                <div class="form-group">
+                                <textarea name="description" cols="40" >
+                                </textarea>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <input type="file" name="image" id="image" required="">
                                 </div>
                               
-                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                                <button type="reset" class="btn-inverse btn">Reset</button>
-
+                              
+                                <div class="row">
+                                    <button type="submit" name="submit" class="btn-primary btn">Create</button>
+                                    <button class="btn-default btn">Cancel</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -113,5 +139,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-    <?php }
-    ?>
+<?php 
+}
+?>

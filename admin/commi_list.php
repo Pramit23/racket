@@ -12,17 +12,18 @@ else{
         
         $cid=intval($_REQUEST['cid']);
         
-        $sql="DELETE FROM tbl_coach WHERE Id=:cid";
+        $sql="DELETE FROM tbl_commitee WHERE Id=:cid";
         $query = $dbh->prepare($sql);
         $query-> bindParam(':cid',$cid, PDO::PARAM_STR);
         $query -> execute();    
     }
 	?>
+
 <!DOCTYPE HTML>
 <html>
 
 <head>
-  <title>Calcutta Racket Club || Manage Coach</title>
+  <title>Communications List||Manage Communications</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -55,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div id="wrapper">
     <!-- Navigation -->
     <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-    
+
       <!-- /.navbar-header -->
 
       <?php include('includes/sidebar.php'); ?>
@@ -66,14 +67,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
       <div class="container">
-
         <div class="margin">
           <div class="row">
             <div class="col-md-6">
-              <h2>Coaches Lists</h2>
+              <h2>Commitee Lists</h2>
             </div>
-            <div class="col-md-6"><a href="addcoach.php"><button type="submit" class="btn btn-default">Add
-            Coach</button></a></div>
+            <div class="col-md-6"><a href="add_commi.php"><button type="submit" class="btn btn-default">Add
+                  Commitee Details</button></a></div>
           </div>
         </div>
 
@@ -82,12 +82,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <tr>
               <th>Id</th>
               <th>Name</th>
-              <th>Description</th>
+              <th>Designation</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <?php $sql = "SELECT * from tbl_coach";
+            <?php $sql = "SELECT * from  tbl_commitee";
 $query = $dbh -> prepare($sql);
 //$query -> bindParam(':city', $city, PDO::PARAM_STR);
 $query->execute();
@@ -98,19 +98,28 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {				?>
             <tr>
-              <td><?php echo $cnt;?></td>
-              <td><?php echo  $result->name;?></td>
-              <td><?php echo htmlspecialchars_decode(stripslashes($result->description));?></td>
-              <td><a href="updatecoach.php?Cid=<?php echo htmlentities($result->Id); ?>" class="btn btn-primary"
-                  title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;
-                <a href="coachlist.php?cid=<?php echo $result->Id ; ?>"
-                  onclick="return confirm('Do you really want to delete')" class="btn btn-danger delete-btn"
-                  title="Delete" data-toggle="tooltip"><i class="fa fa-times"></i></a>&nbsp;</td>
+              <td><strong><?php echo $cnt ?></strong></td>
+              <td><strong><?php echo $result->name ?></strong></td>
+              <td><strong><?php echo $result->designation ?></strong></td>
+              <td><a href="update_commi.php?cid=<?php echo $result->Id ?>" class="btn btn-primary"
+                  title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;<a
+                  href="commi_list.php?cid=<?php echo $result->Id ?>"
+                  class="btn btn-danger delete-btn" title="Delete"
+                  onclick="return confirm('Do you really want to delete')" data-toggle="tooltip"><i
+                    class="fa fa-times"></i></a>&nbsp;</td>
             </tr>
             <?php $cnt=$cnt+1;} }?>
           </tbody>
         </table>
       </div>
+
+
+
+
+
+
+
+
       <!-- Copywrite Section -->
       <?php include('includes/copyright.php') ?>
       <!-- Copywrite Section End -->
@@ -126,4 +135,4 @@ foreach($results as $result)
 </body>
 
 </html>
-<?php  }?>
+<?php } ?>

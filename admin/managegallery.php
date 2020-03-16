@@ -22,7 +22,7 @@ else{
 <html>
 
 <head>
-  <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+  <title>Calcutta Racket Club||Manage Gallery </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -81,7 +81,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <thead>
             <tr>
               <th>Id</th>
-              <th>Category</th>
               <th>Title</th>
               <th>Description</th>
               <th>Image</th>
@@ -103,7 +102,6 @@ foreach($results as $result)
 
 
               <td><?php echo htmlentities($cnt);?></td>
-              <td><?php echo htmlentities($result->category);?></td>
               <td><?php echo htmlentities($result->title);?></td>
               <td><?php echo htmlentities($result->description);?></td>
               <td><img src="images/<?php echo htmlentities($result->image);?>" style="width:100px;height:100px;"></td>

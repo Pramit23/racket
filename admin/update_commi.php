@@ -7,33 +7,31 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:dashboard.php');
 }
 else{
-$nid=intval($_GET['nid']);  
+$cid=intval($_GET['cid']);  
 if(isset($_POST['submit']))
 {
 
-$title=$_POST['title'];
-$date=$_POST['date'];
-$description=$_POST['description'];
+$name=$_POST['name'];
+$designation=$_POST['designation'];
 
-$sql="update tbl_notice set title=:title,date=:date,description=:description  where Id=:nid";
+$sql="update tbl_commitee set name=:name,designation=:designation  where Id=:cid";
 	
 $query = $dbh->prepare($sql);
 
-$query->bindParam(':title',$title,PDO::PARAM_STR);
-$query->bindParam(':date',$date,PDO::PARAM_STR);
-$query->bindParam(':description',$description,PDO::PARAM_STR);
+$query->bindParam(':name',$name,PDO::PARAM_STR);
+$query->bindParam(':designation',$designation,PDO::PARAM_STR);
 
-$query->bindParam(':nid',$nid,PDO::PARAM_STR);
+$query->bindParam(':cid',$cid,PDO::PARAM_STR);
 $query->execute();
 
-$msg="Notice Updated Successfully";
+$msg="Commitee  Details Updated Successfully";
 }
 ?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Calcutta Racket Club || Update Notice</title>
+    <title>Calcutta Racket Club||Update Commitee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -73,14 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
+
             <!-- /.navbar-header -->
 
             <?php include('includes/sidebar.php'); ?>
@@ -90,17 +81,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
             <div class="graphs">
                 <div class="xs">
-                    <h3>Update Notice</h3>
+                    <h3>Update Comittee Official's Data</h3>
                     <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="horizontal-form">
                             <?php 
-$nid=intval($_GET['nid']);
-$sql = "SELECT * from tbl_notice where Id=:nid";
+$cid=intval($_GET['cid']);
+$sql = "SELECT * from tbl_commitee where Id=:cid";
 $query = $dbh -> prepare($sql);
-$query -> bindParam(':nid', $nid, PDO::PARAM_STR);
+$query -> bindParam(':cid', $cid, PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
@@ -109,24 +100,22 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {
 ?>
-                            <form class="form-horizontal" name="notice" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal"  method="post" enctype="multipart/form-data">
 
+                        
                                 <div class="form-group">
-                                    <input type="varchar" class="form-control" name="title" id="title"
-                                        value="<?php echo htmlentities($result->title); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <input type="varchar" class="form-control" name="date" id="date"
-                                        value="<?php echo htmlentities($result->date); ?>">
+                                    <input type="text" class="form-control" name="name" id="name"
+                                        value="<?php echo $result->name; ?>">
                                 </div>
                                 <div class="form-group">
-                                <div class="col-sm-8">
-                                <textarea  name="description" id="description" cols="60" rows="20" >
-                                    <?php echo htmlentities($result->description);?>
-                                </textarea>
+                                    <input type="varchar" class="form-control" name="designation" id="designation"
+                                        value="<?php echo $result->designation; ?>">
                                 </div>
-                                </div>
-                                <?php }} ?>
+                              
+<?php 
+}
+} 
+?>
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn-inverse btn">Reset</button>
 

@@ -49,7 +49,7 @@ $query->execute();
 <html>
 
 <head>
-    <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+    <title>Calcutta Racket Club||Update Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -121,17 +121,13 @@ foreach($results as $result)
 ?>
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="varchar" class="form-control" name="gcategory" id="gcategory"
-                                        value="<?php echo htmlentities($result->category); ?>">
-                                </div>
-                                <div class="form-group">
                                     <input type="varchar" class="form-control" name="gtitle" id="gtitle"
                                         value="<?php echo htmlentities($result->title); ?>">
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-8">
-                                        <textarea name="gdescription" id="gdescription" cols="60" rows="20"
-                                            value="<?php echo htmlentities($result->description);?>">
+                                        <textarea name="gdescription" id="gdescription" cols="60" rows="20">
+                                            <?php echo htmlspecialchars_decode(stripslashes($result->description));?>
                                 </textarea>
                                     </div>
                                 </div>
@@ -145,28 +141,7 @@ foreach($results as $result)
                                             Change Image</a>
                                     </div>
                                 </div>
-                              <center>  <span><h2>Category Images</h2></span> </center>
-                                <div class="form-group">
-                                    <input type="varchar" class="form-control" name="gtitle_1" id="gtitle_1"
-                                        value="<?php echo htmlentities($result->title_1); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-8">
-                                        <textarea name="gdescription" id="gdescription_1" cols="60" rows="20"
-                                            value="<?php echo htmlentities($result->description_1);?>">
-                                </textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class=container-fluid">
-                                        <img src="images/<?php echo htmlentities($result->image_1);?>"
-                                            style="width:50%;height:50%;">
-                                        <br>
-                                        <a href="changegallery.php?Gid1=<?php echo htmlentities($result->Id);?>"
-                                            style="color:black; font:sans-serif;">
-                                            Change Image</a>
-                                    </div>
-                                </div>
+
                                 <?php }} ?>
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn-inverse btn">Reset</button>

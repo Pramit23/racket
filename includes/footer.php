@@ -46,7 +46,7 @@
 				</div>
 				<div class="w3-agileits_mail_grid_left2">
 					<h3>Phone</h3>
-					<p>+91 223 1138</p>
+					<p>+91 33 22231138</p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

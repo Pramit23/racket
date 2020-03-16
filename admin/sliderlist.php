@@ -23,7 +23,7 @@ else{
 <html>
 
 <head>
-  <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+  <title>Calcutta Racket Club|| Manage Slider</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -100,9 +100,9 @@ foreach($results as $result)
 {				?>
             <tr>
               <td><strong><?php echo $cnt ?></strong></td>
-              <td><strong><?php echo $title ?></strong></td>
-              <td><strong><?php echo $description ?></strong></td>
-              <td><center><img src="slider/<?php echo $result->simage ?>" style="width:640px;height:480px;"></center></td>
+              <td><strong><?php echo $result->text ?></strong></td>
+              <td><strong><?php echo htmlspecialchars_decode(stripslashes($result->description)) ?></strong></td>
+              <td><center><img src="slider/<?php echo $result->simage ?>" style="width:70%;height:50%;"></center></td>
               <td><a href="updateslider.php?sid=<?php echo $result->Id ?>" class="btn btn-primary"
                   title="" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>&nbsp;<a
                   href="sliderlist.php?sid=<?php echo $result->Id ?>" id="4"

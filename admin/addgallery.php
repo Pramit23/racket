@@ -10,19 +10,17 @@ header('location:dashboard.php');
 else{
 if(isset($_POST['submit']))
 {
-$category=$_POST['category'];
 
 $title=$_POST['title'];   
 $description=$_POST['description'];
 $image=$_FILES["image"]["name"];
 move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$_FILES["image"]["name"]);
 
-$sql="INSERT INTO tbl_gallery(category,title ,description,image)
-VALUES(:category,:title,:description,:image)";
+$sql="INSERT INTO tbl_gallery(title ,description,image)
+VALUES(:title,:description,:image)";
 	
 $query = $dbh->prepare($sql);
 
-$query->bindParam(':category',$category,PDO::PARAM_STR);	
 
 $query->bindParam(':title',$title,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);	
@@ -45,7 +43,7 @@ $error="Something went wrong. Please try again";
 <html>
 
 <head>
-    <title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Forms :: w3layouts</title>
+    <title>Calcutta Racket Club||Add Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -94,17 +92,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
             <div class="graphs">
                 <div class="xs">
-                    <h3>Add Gallery</h3>
+                    <h3>Add Gallery Image</h3>
                     <div class="tab-content">
                         <?php if($error){?><div class="errorWrap">
                             <strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                         <div class="tab-pane active" id="horizontal-form">
                             <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <input type="varchar" class="form-control" name="category" id="name" placeholder="Enter Category"
-                                        required="">
-                                </div>
+                              
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title"
                                         required="">

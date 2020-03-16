@@ -58,7 +58,7 @@ include('includes/config.php');
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="http://thecalcuttaracketclub.club">Home</a>
+                    <li><a href="index.php">Home</a>
                     </li>
                     <li class="active">Committee</li>
                 </ol>
@@ -66,73 +66,47 @@ include('includes/config.php');
         </div>
 	<!-- about -->
 	<div class="row">
-            <div class="col-md-12">
+	        <div class="col-md-12">
                 <h2 style="text-align:center; color:#235689"><span style="font-size:28px;">Executive Committee For The
                         Year 2019-2020</span></h2>
                 &nbsp;
-
+			
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <th bgcolor="blue"><strong><span style="color:#F0FFFF;">NAME</span></strong></th>
+							<th bgcolor="blue"><strong><span style="color:#F0FFFF;">Id</span></strong></th>
+                            <th bgcolor="blue"><strong><span style="color:#F0FFFF;">Name</span></strong></th>
                             <th bgcolor="blue"><strong><span style="color:#F0F8FF;">Designation</span></strong></th>
                         </tr>
-                        <tr>
-                            <td>Mr. Hrishikesh Shroff</td>
-                            <td>President</td>
+						<?php 
+				$sql="select * from tbl_commitee";
+				$query=$dbh->prepare($sql);
+					$query->execute();
+					$results=$query->fetchAll(PDO::FETCH_OBJ);
+					$cnt=1;
+				
+					if($query->rowCount()>0)
+					{
+						foreach($results as $result)
+						{
+            ?>
+    
+						<tr>
+							<td><?php  echo $result->Id; ?></td>
+                            <td><?php  echo $result->name; ?></td>
+                            <td><?php  echo $result->designation; ?></td>
                         </tr>
-                        <tr>
-                            <td>Mr. Raman Tandon</td>
-                            <td>Vice- President</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Dhruv Agarwal</td>
-                            <td>Jt. Hony. Secretary</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Mayur Bhajanka</td>
-                            <td>Jt. Hony. Secretary</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Anand Daga</td>
-                            <td>Hony. Treasurer</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Anuj Sanganeria</td>
-                            <td>Member</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Pravash Agarwal</td>
-                            <td>Member</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Jishnu Chowdhury</td>
-                            <td>Member</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Gaurav Mohta</td>
-                            <td>Member</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Rakesh Agarwal</td>
-                            <td>Member</td>
-                        </tr>
-                        <tr>
-                            <td>Mrs. Avanti Murarka Jhunjhunwala</td>
-                            <td>Invitee</td>
-                        </tr>
-                        <tr>
-                            <td>Mr.Bharat Dhandhandia</td>
-                            <td>Invitee</td>
-                        </tr>
-                        <tr>
-                            <td>Mr. Tanweer Ahmed</td>
-                            <td>Ex-officio</td>
-                        </tr>
+						<?php
+								 	$cnt=$cnt+1;
+
+						}
+					} 
+			?>
+	                    
                     </tbody>
                 </table>
-
-            </div>
+			</div>
+		
         </div>
 	</div>
 	<!-- //about -->

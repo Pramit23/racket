@@ -11,22 +11,28 @@ else{
 if(isset($_POST['submit']))
 {
 
- $event=$_FILES["event"]["name"];
-move_uploaded_file($_FILES["event"]["tmp_name"],"events/".$_FILES["event"]["name"]);	
-    
+$name=$_POST['name'];   
 
-$sql="INSERT INTO tbl_event(event)
-VALUES(:event)";
+$post=$_POST['post'];
+
+$number=$_POST['number'];
+
+$sql="INSERT INTO tbl_comms(name,post,number)
+VALUES(:name,:post,:number)";
 	
 $query = $dbh->prepare($sql);
-$query->bindParam(':event',$event,PDO::PARAM_STR);
+
+
+$query->bindParam(':name',$name,PDO::PARAM_STR);
+$query->bindParam(':post',$post,PDO::PARAM_STR);
+$query->bindParam(':number',$number,PDO::PARAM_STR);	
 
 
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$msg="Event Created Successfully";
+$msg="Communication Official details created Successfully";
 }
 else 
 {
@@ -34,11 +40,12 @@ $error="Something went wrong. Please try again";
 }
 }
 ?>
+
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Calcutta Racket Club || Add Event</title>
+    <title>Calcutta Racket Club | Add communication official details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -64,14 +71,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!---//webfonts--->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+    <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+  </script>
 </head>
 
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-         
+           
             <!-- /.navbar-header -->
+           
 
                 <?php include('includes/sidebar.php'); ?>
 
@@ -80,20 +94,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
             <div class="graphs">
                 <div class="xs">
-                    <h3>Add Events</h3>
-                    <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+                    <h3>Add Communication Official Details</h3>
                     <div class="tab-content">
+                        <?php if($error){?><div class="errorWrap">
+                            <strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                         <div class="tab-pane active" id="horizontal-form">
-                        <form class="form-horizontal" name="event"  method="post" enctype="multipart/form-data">
-                            
-                            <div class="form-group">
-                              <input type="file" class="form-control" name="event" id="event">
+                            <form class="form-horizontal" name="gallery" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
                                 </div>
-                              
-                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                                <button type="reset" class="btn-inverse btn">Reset</button>
-
+                                <div class="form-group">
+                                    <input type="varchar" class="form-control" name="post" id="post" placeholder="Enter Designation">
+                                </div>
+                                <div class="form-group">
+                                    <input type="varchar" class="form-control" name="number" id="number" placeholder="Enter phone number">
+                                </div>
+                                <div class="row">
+                                    <button type="submit" name="submit" class="btn-primary btn">Create</button>
+                                    <button class="btn-default btn">Cancel</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -113,5 +133,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-    <?php }
-    ?>
+<?php 
+}
+?>
